@@ -26,9 +26,7 @@
     - Exasperation of the latter due to (lacking/inaccurate) media coverage + consumer society ;
     - Contradiction found in actual growing interest in crafts
         - Interest in the authenticity achieved in the final product (VS assembly line)
-        - Craftsmen are rarely present on the web as they believe people are genuinely uninterested ; however... *
-
-*
+        - Craftsmen are rarely present on the web as they believe people are genuinely uninterested ; however...
 
 *Personal findings and experience*
 On social media platforms (mainly Youtube), an enormous variety of DIY channels ranging from small and simple crafts meant for personal enjoyment (including "hacks" that can make one's homelife a little easier) to more complex skills such as bookbinding and woodworking.
@@ -106,7 +104,7 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                 - Pseudonyme/Alias
                 - What's your craft ?
                 - Profile image ?
-                - About you (short summary, max 50 characters)
+                - About you (short summary, max 50 characters, Placeholder:'What do you do, and what inspires you as a creator')
             - Button : Join the artisanal network (still gotta work on that). Or just 'sign up'!
 
             *(backend)*
@@ -170,7 +168,7 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                             - POST, DELETE, PUT
                         - comments/user/:id
                             - GET
-                    - Idea : if(pseudo = user.pseudo) || (name = user.firstname) { display the edit/delete button on the respective comments } eles { only display the comment, with no edit/delete button.}
+                    - Idea : if(pseudo = user.pseudo) || (name = user.firstname) { display the edit/delete button on the respective comments } else { only display the comment, with no edit/delete button.}
 
             - Navbar : 
                 - Added buttons for profile page (can be edited)
@@ -197,6 +195,19 @@ This decision will affect how I render the frontend (and whether or not I end up
 
 Also starter-kits : are they worth trying in order to get into Laravel ?
 
+**To summarise (18/01)**
+This project's theme is promoting craftsmanship thanks to an open web platform that allows craftsman and artisans to sign up and freely post about their work, sources and people/places of inspiration, write comments or open discussion with other creators about topics of their choice. 
+It will include **sign up** and **login** forms where users will provide and submit their basic information to a database via a form. After first registration, another form for the **profile** will be provided so they can add more personal information about themselves. This information (basic + personal) can later be modified and updated into the database via forms in the profile/edit page.
+The main page will display **posts**/articles and **comments** made by every user. For the user currently logged in, they can only view the content made by others, but edit the content they wrote themselves (posts + comments).
+
+This defines the overall project.
+
+The technologies that will be used include Laravel : certainly for the backend and API, however the possibility of rendering views with the same technology seems to indicate no need for a separate framework for the frontend, such as React. It might make sense to proceed this way if I plan to take a fullstack approach, but might also be a missed opportunity to learn a frontend framework (other than Bootstrap). This I need to discuss and weigh my options tomorrow.
+So the frontend is left to be determined.
+For the API and database (hosting and schemas), Mongodb Atlas if my first option, as I have the most recent experience with that. However, I also have some relevant experience with MySQL and Docker, both of which appear to be very compatible with Laravel. Either of these technologies would be worth developing this project with, but once again, I might need more input before I make a final decision this week. And that includes looking up all the (useful) tutorials I can find.
+
+Another step I need to take before starting this project is graphic charter and mockup creation ; this is something I'm most comfortable with and can take the day (maybe less time). This will be done with pen and paper and more visually rendered with Adobe XD.
+
 ---
 
 ## Resources
@@ -209,3 +220,8 @@ Also starter-kits : are they worth trying in order to get into Laravel ?
 
 - Inspiration :
     - https://craftsmanship.net/
+    - https://www.pdcacraftsmanshipforum.com/ (maybe what NOT to do ?)
+    - http://www.craftsmanship-plus.eu/about.html
+
+- Motivation :
+    - https://www.youtube.com/watch?v=mxgOY2Ms-YI
