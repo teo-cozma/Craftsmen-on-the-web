@@ -225,3 +225,9 @@ Another step I need to take before starting this project is graphic charter and 
 
 - Motivation :
     - https://www.youtube.com/watch?v=mxgOY2Ms-YI
+
+- Fonts :
+    - https://typ.io/fonts/gin_round
+    - https://typ.io/fonts/helvetica
+    - https://www.1001fonts.com/grunge-fonts.html?page=6
+    - https://www.1001fonts.com/search.html?search=helvetica+light+sans-serif
