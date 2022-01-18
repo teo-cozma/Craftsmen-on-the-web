@@ -18,7 +18,7 @@
     - Heroku (+ remote DBA ? **TBD**)
 
 ### Project definition
-- Theme of choice : promote craftsmanship.
+- Theme of choice : **promote craftsmanship.**
     - What exactly is meant by craftsmanship ? A set of artisanal skills that demonstrate the capacity to create/build something (usually functional over esthetic) ; skills in a particular craft.
 - What's the story of this theme :
     - (apparent) Drop in activity due to historical and cultural circumstances ;
@@ -28,7 +28,9 @@
         - Interest in the authenticity achieved in the final product (VS assembly line)
         - Craftsmen are rarely present on the web as they believe people are genuinely uninterested ; however... *
 
-* *Personal findings and experience*
+*
+
+*Personal findings and experience*
 On social media platforms (mainly Youtube), an enormous variety of DIY channels ranging from small and simple crafts meant for personal enjoyment (including "hacks" that can make one's homelife a little easier) to more complex skills such as bookbinding and woodworking.
 
 In addition, one can find many schools that are entirely devoted to developing craftsman or artisanal skills : from my personal experience, Ecoles supérieures in France dedicated to "applied arts" (*arts appliqués*) which include carpentry, glass making, welding...
@@ -53,8 +55,8 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
 ---
 
 ### Project log
-#### Day one (17/01)
-- [ ] Take the ENTIRE day to define the project (maybe even tomorrow as well); 
+#### Day one (17/01) and Day two (18/01)
+- [ ] Take the ENTIRE day to define the project.
 
 - [ ] Do some research (refresh memory in some areas) on the topic
     - The schools
@@ -62,17 +64,20 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
     - The design trends (see old university notes)
     - Examples of actual platforms (Behance, Deviantart, Pinterest...) and how they work to showcase people's work and awareness of said work, or brand even.
 
-- [ ] link what's interesting and doable (with my current skillset) to the must-haves that need to be included :
+- [ ] Link what's interesting and doable (with my current skillset) to the must-haves that need to be included :
     - System of sessions (using Laravel) : 
         - Registration (sign up) -> been there, done that, but not yet with Laravel
         - (Dis)connection (login, logout) -> see previous mention.
         - Lost password (click a link on the login page that will lead to another form that inludes this functionality) -> haven't done that myself, but pretty sure there's good documentation about that + a teammate with that experience.
-        - Different privileges 
+        - Different privileges :
             - The welcome page, registration and login pages, and the static site (forum/feed, comments, articles, pictures) can be available to those who are not registered/logged in.
             - Commenting on different posts, articles, or images shared, creating, editing and deleting those comments or posts, these privileges are only accessible to those who are registered and logged in. How do I manage those sessions ?
             
-    - User interactions : comments, forum, chat, interactive maps... (there are more elements, but these to me seem the most doable, and comprehensive for the time being)
-    - Using an API (this seems applicable in the case of creating posts and comments ; if there's another application, I need to research and find out now !)
+    - User interactions : comments, forum, chat, interactive maps... (there are more elements, but these to me seem the most doable, and comprehensive for the time being).
+
+    - Using an API (this seems applicable in the case of creating posts and comments ; if there's another application, I need to research and find out now !).
+
+
     
 - [ ] The steps to take, technologies that will be used.
     - Welcome page (Crafts community, Craft your network, the artisanal workshop brought to a collective digital front, The artisan's digital workshop)
@@ -86,11 +91,10 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
             - Social media logos
             - Newsletter ?
             - ...
-        - (These elements, which are common to every page, can be rendered using EJS partials. However, their compatibility with React seems questionable, so another method using React, or whichever framework I go with, may need to be researched.)
+        - (These elements, which are common to every page, can be rendered using EJS partials. However, there's a compatibility issue with React, so another method using React, or whichever framework I go with, will need to be researched.)
 
-    - Registration (I believe the functionalities listed here + login are doable with Laravel ; since it's PHP based, I might have an easier time going about it. I might...):
-        - Sign up form
-            
+    - Registration (I believe the functionalities listed here + login are doable with Laravel ; since it's **PHP based**, I might have an easier time going about it. I might...):
+        - Sign up form :
             *(frontend)*
             - Basic info :
                 - Firstname
@@ -102,13 +106,14 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                 - Pseudonyme/Alias
                 - What's your craft ?
                 - Profile image ?
-                - About you (short summary)
+                - About you (short summary, max 50 characters)
+            - Button : Join the artisanal network (still gotta work on that). Or just 'sign up'!
 
             *(backend)*
             - DB schemas (Mongoose)
-                - User (first + last names, email, password (hashed))
-                - Profile (Alias, Craft, **image ? I'll need to find out**, About)
-            - API
+                - ***User schema*** (first + last names, email, password (hashed))
+                - ***Profile schema*** (Alias, Craft, **image ? I'll need to find out**, About)
+            - API ???
                 - User/create
                 - Profile/create
         - Sign in button, redirecting to main page with all the posts and feed and stuff.
@@ -117,40 +122,90 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
         *(frontend)*
         - Form :
             - Alias
-            - Password
+            - Password (authentication !!!)
         - Forgot password ?
             - Another form
                 - Email
+                - Request new password.
         
         *(backend)*
         - API
-            - **user/:id GET ???**
+            - **user/:id -> GET ???**
         
-
     - Once registered and logged in :
-        - Main page 
+        - Main page :
             - Recent posts
+                - ***Post schema*** :
+                    - Title
+                    - Author (alias or name --> **is there any way to create if conditions that can take either one of these elements to verify that a particular user has created this post ?**)
+                    - Content (or body ? Whichever makes things **less** confusing)
+                - Database + API : 
+                    - posts/all
+                    - posts/user
+                        - GET
+                    - posts/user/create
+                        - POST
+                    - posts/user/:id/edit
+                        - POST, DELETE, PUT
+                    - posts/user/:id
+                        - GET
             - Comments
+                - ***Comments schema***
+                    - Alias/name (find a way to automatically include this once the comment is submitted !!!)
+                    - Date (same principle)
+                    - Content
                 - Displayed in most recent post (-1)
-                - Small form
+                    - API : comments/all
+                        - GET
+                - Small form :
                     - Content
                     - Send button
-                - Access to the user's own comments so they can edit or delete them.
-                - Database of comments :
-                    - All comments made by every user
-                    - All comments made by one user that only they can access, modify, delete (CRUD application here)
-            
+                - All comments made by one user that only they can access, modify, delete (CRUD application here)
+                    - API : 
+                        - comments/user
+                            - GET
+                        - comments/user/create
+                            - POST
+                        - comments/user/:id/edit
+                            - POST, DELETE, PUT
+                        - comments/user/:id
+                            - GET
+                    - Idea : if(pseudo = user.pseudo) || (name = user.firstname) { display the edit/delete button on the respective comments } eles { only display the comment, with no edit/delete button.}
 
             - Navbar : 
                 - Added buttons for profile page (can be edited)
-                - + logout (end session)
+                - Logout (end session)
+                - Searchbar for a particular craftsman or article ?
+        
+        - Profile page :
+            - Profile displayed + button to go to an edit page
+            - Profile edit page, forms :
+                - Modify basic information (see ***User schema***)
+                    - API :
+                        - user/edit-info
+                            - PUT (update)
+                            - GET
+                - Modify profile information (see ***Profile schema***)
+                    - API :
+                        - user/edit-profile
+                            - PUT (update)
+                            - GET
 
+*How to use each technology ?*
+It looks like Laravel can be used as a Fullstack framework, or just serve the API backend. In the case of fullstack, the frontend will then be rendered with Blade templates (similar to EJS templates). In the latter case, the API backend can simply provide authentication and data storage/retrieval. Separate documentation exists for each scenario.
+This decision will affect how I render the frontend (and whether or not I end up learning React with this project). However, there is Inertia.js, which is powered by Vue or React, specified as a stack when running a command - although this is without an API.
+
+Also starter-kits : are they worth trying in order to get into Laravel ?
+
+---
 
 ## Resources
 - Graphic charters : https://www.victoria-agency.be/blog/what-is-a-graphic-charter/2020
 
 - Technologies
     - https://www.endpointdev.com/blog/2021/05/integrating-laravel-with-a-react-frontend/
+    - https://laracasts.com/
+    - https://laravel.com/docs/8.x/starter-kits
 
 - Inspiration :
     - https://craftsmanship.net/
