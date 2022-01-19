@@ -54,15 +54,15 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
 
 ### Project log
 #### Day one (17/01) and Day two (18/01)
-- [ ] Take the ENTIRE day to define the project.
+- Take the ENTIRE day to define the project.
 
-- [ ] Do some research (refresh memory in some areas) on the topic
+- Do some research (refresh memory in some areas) on the topic
     - The schools
     - The DIY channels on Youtube
     - The design trends (see old university notes)
     - Examples of actual platforms (Behance, Deviantart, Pinterest...) and how they work to showcase people's work and awareness of said work, or brand even.
 
-- [ ] Link what's interesting and doable (with my current skillset) to the must-haves that need to be included :
+- Link what's interesting and doable (with my current skillset) to the must-haves that need to be included :
     - System of sessions (using Laravel) : 
         - Registration (sign up) -> been there, done that, but not yet with Laravel
         - (Dis)connection (login, logout) -> see previous mention.
@@ -77,7 +77,7 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
 
 
     
-- [ ] The steps to take, technologies that will be used.
+- The steps to take, technologies that will be used.
     - Welcome page (Crafts community, Craft your network, the artisanal workshop brought to a collective digital front, The artisan's digital workshop)
         - Display of site logo, nav elements (sign up, login, about, contact) -> this will be common to all pages.
         - Hero section :
@@ -207,6 +207,87 @@ So the frontend is left to be determined.
 For the API and database (hosting and schemas), Mongodb Atlas if my first option, as I have the most recent experience with that. However, I also have some relevant experience with MySQL and Docker, both of which appear to be very compatible with Laravel. Either of these technologies would be worth developing this project with, but once again, I might need more input before I make a final decision this week. And that includes looking up all the (useful) tutorials I can find.
 
 Another step I need to take before starting this project is graphic charter and mockup creation ; this is something I'm most comfortable with and can take the day (maybe less time). This will be done with pen and paper and more visually rendered with Adobe XD.
+
+#### Day three (19/01)
+Mockup and graphic charter complete (though some tweaks might be made later ; newer versions will be uploaded).
+Another summary outlining the major steps of this project, which pages to make, and what do they each contain (boxes will be checked with every day of progress) :
+
+0. All pages :
+    - [ ] Header = logo + Navbar (Home, News, About, Contact - STATIC)
+    - [ ] Footer = Copyright + Social media (LinkedIn, Github - STATIC)
+
+1. Home/welcome page (user logged out - access only to this single, scroll-down page) :
+    - [ ] Hero section with welcome message
+        - [ ] Register link
+        - [ ] Login link
+    - [ ] Latest news (DYNAMIC) = 2 recent posts
+        - [ ] **POSTS database** = Picture, date, title, author, content
+        - [ ] GET posts by date (most recent), limit = 2
+    - [ ] About section (STATIC) containing mission statement
+    - [ ] Contact form (STATIC)
+        - [ ] **CONTACT database**
+        - [ ] POST new message
+
+2. Sign up :
+    - [ ] 1st registration form (STATIC)
+        - [ ] **USER database** = Firstname, lastname, email, password (+ confirm password in form), profileInfo
+        - Already a member ? Redirect to login page.
+
+3. Login :
+    - [ ] Login form (STATIC)
+        - [ ] **USER database** (just email and password -> authentication system)
+        - [ ] Not yet a member ? Redirect to sign up page.
+        - [ ] Forgot password ? Let's fix that !
+
+4. Forgot password :
+    - [ ] Password recovery form (STATIC)
+        - [ ] **USER database** (just email -> authentication system)
+            - [ ] Find out what are the functionalities behind this, as well as how to implement with Laravel.
+
+5. Create profile (1st logged in) :
+    - [ ] Profile form
+        - [ ] **PROFILE database** = Alias, craft, motivation
+        - [ ] Skip for now = direct towards main page
+
+6. Main page (logged in) :
+    - [ ] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
+    - [ ] Latest news, stories, posts...
+        - [ ] **ARTICLE database** = Picture, data, title, author, content
+        - [ ] Search bar = keyword/filter
+            - [ ] If it's not empty, GET all posts matching the keyword ; else, GET all articles.
+        - [ ] 1 card per article (DYNAMIC)
+
+7. Single post by another user (DYNAMIC) :
+    - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
+    - [ ] Comment section
+        - [ ] **COMMENT database** = Date, alias, content (how much of this can be automatically generated ?)
+        - [ ] GET all comments
+        - [ ] Add new comment -> POST (date, alias, content)
+        - [ ] For each comment made by the user, add and Edit button (GET comment by :id) that pops up a small edit form (POST/PUT) + delete button (DELETE) ; manage the display according to the clicked status.
+
+8. Single article made by user (DYNAMIC) :
+    - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
+        - [ ] Same edit functions as for the comments.
+
+9. Create a new article :
+    - [ ] Create form (see article database)
+        - [ ] POST -> saved to db, then redirected to main page to see it displayed (GET from all users)
+
+10. Edit/delete Article :
+    - [ ] Edit form (see article database) -> GET by :id
+    - [ ] Cancel button (back to article)
+    - [ ] Delete button -> GET by :id then DELETE
+
+11. Profile page (DYNAMIC) :
+    - [ ] Profile information + picture (again, see how this is done and if it's doable for me)
+        - [ ] GET by :id ? or by name ? It must be associated to a specific user, and therefore must be included in the user info
+    - [ ] Basic user info
+        - [ ] Same process as with the profile (excluding the profile information -> can be done in a table format ?)
+
+12. Edit profile / user info (STATIC) :
+    - [ ] Edit forms for each
+        - [ ] POST / PUT (update) -> redirect back to profile page with updated informationgit 
+         
 
 ---
 
