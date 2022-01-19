@@ -286,7 +286,7 @@ Another summary outlining the major steps of this project, which pages to make, 
 
 12. Edit profile / user info (STATIC) :
     - [ ] Edit forms for each
-        - [ ] POST / PUT (update) -> redirect back to profile page with updated informationgit 
+        - [ ] POST / PUT (update) -> redirect back to profile page with updated information
          
 
 ---
