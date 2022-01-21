@@ -94,17 +94,8 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
     - Registration (I believe the functionalities listed here + login are doable with Laravel ; since it's **PHP based**, I might have an easier time going about it. I might...):
         - Sign up form :
             *(frontend)*
-            - Basic info :
-                - Firstname
-                - Lastname
-                - Email
-                - Password
-                - Confirm password
-            - Profile info :
-                - Pseudonyme/Alias
-                - What's your craft ?
-                - Profile image ?
-                - About you (short summary, max 50 characters, Placeholder:'What do you do, and what inspires you as a creator')
+            - Basic info : Firstname, Lastname, Email, Password, Confirm password
+            - Profile info : Pseudonyme/Alias, What's your craft ? Profile image ? About you (short summary, max 50 characters, Placeholder:'What do you do, and what inspires you as a creator')
             - Button : Join the artisanal network (still gotta work on that). Or just 'sign up'!
 
             *(backend)*
@@ -118,17 +109,11 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
     
     - Log in :
         *(frontend)*
-        - Form :
-            - Alias
-            - Password (authentication !!!)
-        - Forgot password ?
-            - Another form
-                - Email
-                - Request new password.
+        - Form : Alias, Password (authentication !!!)
+        - Forgot password ? Email, Request new password.
         
         *(backend)*
-        - API
-            - **user/:id -> GET ???**
+        - API : **user/:id -> GET ???**
         
     - Once registered and logged in :
         - Main page :
@@ -144,7 +129,7 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                     - posts/user/create
                         - POST
                     - posts/user/:id/edit
-                        - POST, DELETE, PUT
+                        - POST, DELETE, PATCH
                     - posts/user/:id
                         - GET
             - Comments
@@ -165,7 +150,7 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                         - comments/user/create
                             - POST
                         - comments/user/:id/edit
-                            - POST, DELETE, PUT
+                            - POST, DELETE, PATCH
                         - comments/user/:id
                             - GET
                     - Idea : if(pseudo = user.pseudo) || (name = user.firstname) { display the edit/delete button on the respective comments } else { only display the comment, with no edit/delete button.}
@@ -181,12 +166,12 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                 - Modify basic information (see ***User schema***)
                     - API :
                         - user/edit-info
-                            - PUT (update)
+                            - PATCH (update)
                             - GET
                 - Modify profile information (see ***Profile schema***)
                     - API :
                         - user/edit-profile
-                            - PUT (update)
+                            - PATCH (update)
                             - GET
 
 *How to use each technology ?*
@@ -222,15 +207,19 @@ Another summary outlining the major steps of this project, which pages to make, 
         - [ ] Login link
     - [ ] Latest news (DYNAMIC) = 2 recent posts
         - [ ] **POSTS database** = Picture, date, title, author, content
-        - [ ] GET posts by date (most recent), limit = 2
+            - Try the Mongodb integration tutorial to test the post API for this page with some mock data, using Postman ! The good news is that they're very compatible when it comes to integration !
+        - [ ] Get posts by date (most recent), limit = 2
+            - ***GET ; /posts ; action: index ; route : posts.index***
     - [ ] About section (STATIC) containing mission statement
     - [ ] Contact form (STATIC)
         - [ ] **CONTACT database**
+            - ***POST ; /contact ; action: index ; route : comment.index***
         - [ ] POST new message
 
 2. Sign up :
     - [ ] 1st registration form (STATIC)
-        - [ ] **USER database** = Firstname, lastname, email, password (+ confirm password in form), profileInfo
+        - [ ] **USER database** = Firstname, lastname, email, password (+ confirm password in form), profile.
+            - ***POST ; /user ; action: create ; user.create***
         - Already a member ? Redirect to login page.
 
 3. Login :
@@ -247,47 +236,70 @@ Another summary outlining the major steps of this project, which pages to make, 
 5. Create profile (1st logged in) :
     - [ ] Profile form
         - [ ] **PROFILE database** = Alias, craft, motivation
+            - ***GET ; /profile ; action: create ; profile.create***
+            - ***POST ; /profile ; action: store ; profile.store***
         - [ ] Skip for now = direct towards main page
 
 6. Main page (logged in) :
     - [ ] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
     - [ ] Latest news, stories, posts...
         - [ ] **ARTICLE database** = Picture, data, title, author, content
+            - ***GET ; /main ; action: main ; articles.main***
         - [ ] Search bar = keyword/filter
             - [ ] If it's not empty, GET all posts matching the keyword ; else, GET all articles.
+            - ***GET ; /main/{article}; action: show ; articles.show***
         - [ ] 1 card per article (DYNAMIC)
 
 7. Single post by another user (DYNAMIC) :
     - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
     - [ ] Comment section
         - [ ] **COMMENT database** = Date, alias, content (how much of this can be automatically generated ?)
-        - [ ] GET all comments
+        - [ ] GET all comments -> ***GET ; /main/{article}/comments ; show ; comments.show***
         - [ ] Add new comment -> POST (date, alias, content)
-        - [ ] For each comment made by the user, add and Edit button (GET comment by :id) that pops up a small edit form (POST/PUT) + delete button (DELETE) ; manage the display according to the clicked status.
+            - ***GET ; /main/{article}/comments/create ; create ; comments.create***
+            - ***POST ; /main/{article}/comments/ ; show ; comments.show***
+        - [ ] For each comment made by the user, add and Edit button (GET comment by :id) that pops up a small edit form (POST/PATCH) + delete button (DELETE) ; manage the display according to the clicked status.
+            - ***GET ; /main/{article}/comments/{comment}/edit ; edit; comments.edit ***
+            - ***PATCH ; /main/{article}/comments/{comment} ; update; comments.update ***
+            - ***DELETE ; /main/{article}/comments/{comment} ; destroy; comments.destroy ***
 
 8. Single article made by user (DYNAMIC) :
     - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
         - [ ] Same edit functions as for the comments.
+            - ***GET ; /main/{article} ; show ; article.show***
 
 9. Create a new article :
     - [ ] Create form (see article database)
         - [ ] POST -> saved to db, then redirected to main page to see it displayed (GET from all users)
+            - ***GET ; /main/create ; create ; article.create***
 
 10. Edit/delete Article :
     - [ ] Edit form (see article database) -> GET by :id
+        - ***GET ; /main/{article} ; show ; article.show***
+        - ***GET ; /main/{article}/edit ; edit ; article.edit***
+        - ***PATCH ; /main/{article} ; update ; article.update***
     - [ ] Cancel button (back to article)
     - [ ] Delete button -> GET by :id then DELETE
+        - ***DELETE ; /main/{article} ; destroy ; article.destroy***
 
 11. Profile page (DYNAMIC) :
     - [ ] Profile information + picture (again, see how this is done and if it's doable for me)
         - [ ] GET by :id ? or by name ? It must be associated to a specific user, and therefore must be included in the user info
+            - ***GET ; /profile ; index ; profile.index***
     - [ ] Basic user info
         - [ ] Same process as with the profile (excluding the profile information -> can be done in a table format ?)
 
 12. Edit profile / user info (STATIC) :
     - [ ] Edit forms for each
-        - [ ] POST / PUT (update) -> redirect back to profile page with updated information
-         
+        - [ ] POST / PATCH (update) -> redirect back to profile page with updated information
+        - ***GET ; /profile/edit ; edit ; profile.edit***
+        - ***PATCH ; /profile/edit ; update ; profile.update***
+
+
+#### Day four (20/01) and day five (21/01)
+- Looking up tutorials on Laravel + official documentation on how to create the right functionalities (see Resources)
+- Small updates to mockup
+- Adjustments made to above summary.
 
 ---
 
@@ -312,3 +324,9 @@ Another summary outlining the major steps of this project, which pages to make, 
     - https://typ.io/fonts/helvetica
     - https://www.1001fonts.com/grunge-fonts.html?page=6
     - https://www.1001fonts.com/search.html?search=helvetica+light+sans-serif
+
+- Tutorials :
+    - https://www.youtube.com/watch?v=ImtZ5yENzgE&t=10595s
+    - https://www.mongodb.com/compatibility/mongodb-laravel-intergration
+    - https://laravel.io/forum/03-16-2014-install-laravel-to-an-existing-folder
+    - https://larainfo.com/blogs/how-to-install-laravel-project-in-current-directory
