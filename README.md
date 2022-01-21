@@ -300,6 +300,22 @@ Another summary outlining the major steps of this project, which pages to make, 
 - Looking up tutorials on Laravel + official documentation on how to create the right functionalities (see Resources)
 - Small updates to mockup
 - Adjustments made to above summary.
+- Feedback and next steps :
+    - For 02/02 (back + front ; responsive and deployed):
+        - home page (must have)
+        - sign up (must have)
+        - login (must have)
+        - Forget password (?)
+        - 404 (Nice to have)
+        - Dashboard (customise Laravel's built-in)
+        - Stories -> all (must have)
+        - Searchbar (by keyword)
+        - Logout (+ dashboard)
+
+    - Following week (back + front ; responsive and deployed) :
+        - Story (CRUD)
+        - Comments (CRUD)
+        - Profile (CRUD)
 
 ---
 
