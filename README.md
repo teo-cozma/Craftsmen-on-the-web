@@ -317,6 +317,17 @@ Another summary outlining the major steps of this project, which pages to make, 
         - Comments (CRUD)
         - Profile (CRUD)
 
+#### Weekend (22/01-23/01), day six(24/01) and day seven (25/01)
+Many technical obstacles : the initial tutorial that I found on creating an app using Laravel uses a older version with commands that are no longer available in Laravel 8. Also, my initial goal to connect to a Mongodb Atlas database is also met with problems related to other compatibility issues with PHP drivers as well as the version of PHP that I have on my computer thanks to XAMPP. In order not to dwell to long on these obstacles, I will pursue this project with a SQL database, already installed and configured in the files of my Laravel App.
+
+Today's focus will then be on creating the Home page of my application, structured with HTML in the built-in Blade templates, and styled with Tailwind CSS (for which I should also install before actual coding). All the common elements (header, footer, navbar) will be rendered, and the section on articles will be filled with mock data. Upon completion, will move on to the register, login and forgot password pages, first with the frontend then testing the backend functionnalities (first registering and authentication).
+
+#### Day eight (26/01)
+Slow progress on the backend portion (authentication) thanks to articles and documentation more up to date with the latest version of Laravel (though some small issues on my computer had to be resolved with regards to viewing the SQL database in the terminal ; plus, some of the commands are still not compatible on a Windows machine) + feedback on the frontend : I may want to consider using scss instead of vanilla CSS in order not to accumulate to many classes or ids to style.
+
+#### Day nine (27/01)
+Will continue working on making the home, register and login pages responsive and fully functional.
+
 ---
 
 ## Resources
@@ -346,3 +357,11 @@ Another summary outlining the major steps of this project, which pages to make, 
     - https://www.mongodb.com/compatibility/mongodb-laravel-intergration
     - https://laravel.io/forum/03-16-2014-install-laravel-to-an-existing-folder
     - https://larainfo.com/blogs/how-to-install-laravel-project-in-current-directory
+    - https://github.com/jenssegers/laravel-mongodb
+
+- Bug/small problems :
+    - https://codeanddeploy.com/blog/laravel/laravel-8-authentication-login-and-registration-with-username-or-email
+    - https://www.codecheef.org/article/laravel-8-custom-login-and-registration-example
+    - https://www.itsolutionstuff.com/post/laravel-custom-login-and-registration-exampleexample.html
+    - https://phoenixnap.com/kb/mysql-command-not-found-error
+    - https://dev.to/kenfai/laravel-artisan-cache-commands-explained-41e1
