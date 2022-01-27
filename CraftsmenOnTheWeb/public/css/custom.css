@@ -1,0 +1,289 @@
+@font-face {
+    font-family: victor-handwriting;
+    src: url('../victor-handwriting/victor.ttf');
+}
+@font-face {
+    font-family: aspergit;
+    src: url('../aspergit/Aspergit.otf');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Segoe UI;
+    /* overflow-x: hidden; */
+    color: black;
+}
+h1 {
+    color: #9A240D;
+    font-family: aspergit;
+    font-size: 2.5em;
+}
+button {
+    background-color: #9A240D;
+    color: white;
+    border: none;
+    border-radius: 1em;
+    margin: 2em 0em;
+    padding: 1em 2em;
+    font-weight: bold;
+}
+.text-danger {
+    color: red;
+    font-size: 0.8em;
+    margin: 0em 0em 1em;
+}
+
+/* Navigation */
+header {
+    background-color: #E5D4B5;
+}
+.logo {
+    text-align: center;
+    padding: 2em;
+}
+.logo-p1 {
+    font-family: victor-handwriting;
+    font-size: 5em;
+    margin: 0;
+    color: black;
+}
+.logo-p2 {
+    font-family: aspergit;
+    text-transform: uppercase;
+    color: black;
+    font-size: 1.8em;
+    margin: 0;
+}
+ul {
+    padding: 0em;
+    display:flex;
+    justify-content: space-between;
+    margin: 1em auto;
+    width: 70%;
+}
+.menu {
+    background-color: #9A240D;
+    padding: 0.2em;
+}
+a {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+li:hover > a {
+    font-weight: 600;
+    color: #E5D4B5;
+}
+.menu-item {
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #E5D4B5;
+    padding: 2em 0em;
+}
+.footer-content {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media screen and (max-width: 992px){
+    .footer-content {
+        width: 95%;
+    }
+}
+.icons-social > a {
+    color: black;
+    font-size: 1.2em;
+    justify-content: space-between;
+    padding-left: 0.5em;
+}
+
+
+/* Home page sections */
+.welcome {
+    display: grid;
+}
+.welcome > img {
+    width: 100%;
+    margin: 3em 0em;
+}
+.static {
+    width: 70%;
+    margin: 3em auto;
+}
+@media screen and (max-width: 992px) {
+    .static {
+        width: 90%;
+    }
+}
+
+/* Articles */
+.article {
+    margin: 3em 0em;
+}
+.article > img {
+    width: 100%;
+}
+@media screen and (min-width: 992px) {
+    .articles {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 1em;
+    }
+}
+
+/* About section */
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 1em;
+    background-color: #C99C65;
+    color: white;
+}
+.container {
+    color: white;
+}
+.grid-item > img {
+    object-fit: cover;
+    width: 100%;
+}
+@media screen and (min-width: 992px) {
+    .container {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .grid-item {
+        padding: 1em;
+    }
+    .grid-item > img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Contact section */
+#contact {
+    display: flex;
+    flex-direction: column;
+}
+input, textarea {
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+}
+.messageBox {
+    display: flex; 
+}
+
+@media screen and (min-width: 992px) {
+/* #contact {
+    display: flex;
+    flex-direction: column;
+} */
+.names {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+input, textarea {
+    border: none;
+    border-bottom: 1px solid black;
+}
+/* 
+    textarea {
+        width: 100%;
+    }
+    .messageBox {
+        display: flex; 
+    } */
+}
+
+
+/* #contact {
+    display: grid;
+}
+#contact .row {
+    display: grid;
+    /* grid-template-columns: 10% auto; */
+    /* grid-template-columns: auto auto;
+}
+#contact > input, textarea {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0.8em;
+    margin-bottom: 1em;
+} */ 
+
+/* 
+# contact {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(1fr, 300px));
+    grid-template-areas: 
+        firstname lastname
+        email
+        message
+        button ;
+}
+.fname {
+    grid-area:'firstname';
+}
+.lname {
+    grid-area:'lastname';
+}
+.email {
+    grid-area:'email';
+}
+.messageBox {
+    grid-area:'message';
+}
+.fname {
+    grid-area:'firstname';
+}
+*/
+
+/* Forms */
+.logged-out {
+    display: grid;
+    background-color: rgb(213, 183, 129, 0.1);
+    border-radius: 1em;
+    padding: 2em;
+    margin-bottom: 5em;
+}
+
+.logged-out > label {
+    display: flex;
+    margin-left: 5px;
+}
+.logged-out > input {
+    display: flex;
+    width: 45%;
+    margin: 0.5em 0em;
+    padding: 0.8em;
+    background-color: rgb(229, 212, 181, 0.45);
+    border: none;
+}
+form a {
+    text-decoration: underline;
+}
+@media screen and (max-width: 992px){
+    .logged-out > input {
+        width: 98%;
+    }
+}
