@@ -365,3 +365,5 @@ Will continue working on making the home, register and login pages responsive an
     - https://www.itsolutionstuff.com/post/laravel-custom-login-and-registration-exampleexample.html
     - https://phoenixnap.com/kb/mysql-command-not-found-error
     - https://dev.to/kenfai/laravel-artisan-cache-commands-explained-41e1
+
+    - https://aregsar.com/blog/2020/create-laravel-project-with-tailwind-ui-and-auth/
