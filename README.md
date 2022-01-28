@@ -327,6 +327,8 @@ Slow progress on the backend portion (authentication) thanks to articles and doc
 
 #### Day nine (27/01)
 Will continue working on making the home, register and login pages responsive and fully functional.
+I also finally found the rights commands that would allow me to set up the authentication scaffolding with TailwindCSS ; this is a "replacement" for the defunct "make:auth" command that existed in previous Laravel versions (x5). However, the additional views that were added to my folders caused a lot of confusion and conflict with my "custom" views, controllers and stylesheet. Therefore, I started a new project from scratch : moving the old folder, creating a new Laravel project here (composer create-project --prefer-dist laravel/laravel Craftsmen on the web) and then adding the scaffolding for the authentication (composer require laravel-frontend-presets/tailwindcss --dev ; php artisan ui tailwindcss --auth) and finally compiling (npm install && npm run dev). 
+There was an issue with the mixing (''mix' is not recognized as an internal or external command, operable program or batch file.') so I had to run npm uninstall, run npm cache clear --force, reinstall all the dependencies, then npm audit fix to fix all the vulnerabilities that had been previously reported. Afterwards, ran npm run dev again and everything was compiled properly and rendering the views. I have been warned that this is not an ideal command to run and should only be used as a last resort. So far, no problems related to that appeared to interrupt my work.
 
 ---
 
