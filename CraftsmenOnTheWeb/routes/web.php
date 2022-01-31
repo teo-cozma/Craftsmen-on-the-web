@@ -15,13 +15,17 @@ use App\Http\Controllers\ContactsController;
 */
 
 // Guest views //
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', function() {return view('welcome');})->name('welcome');
+Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
 
 Auth::routes();
 
-Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
+// Route::post('/password/email', [\App\Http\Controllers\ResetPasswordController::class, 'passwordRequestForm'])->name('passwords.email');
+
+
+// Route::get('/forgot-password', function () {
+//     return view('auth.forgot-password');
+// })->middleware('guest')->name('password.request');
 
 // User views //
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');

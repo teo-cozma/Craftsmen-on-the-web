@@ -217,7 +217,7 @@ Another summary outlining the major steps of this project, which pages to make, 
         - [ ] Skip for now = direct towards main page
 
 6. Main page (logged in) :
-    - [ ] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
+    - [x] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
     - [ ] Latest news, stories, posts...
         - [ ] **ARTICLE database** = Picture, data, title, author, content
             - ***GET ; /main ; action: main ; articles.main***
@@ -316,6 +316,9 @@ However, on the home page, I have yet to dynamically insert 2 examples of articl
 
 Since the first deadline is this Wednesday and it must be deployed, my main focus today and tomorrow should be to make the entire project responsive (so learn more about Tailwind and how it can help me with this) and finding a suitable deployment method (maybe Heroku, although many have expressed it's difficult to use).
 
+Afternoon assessment : 
+Managed to make the layout much more responsive, however a few details still need some adjustements. Also, tested the password reset routes and controllers, modified the views according to the new style and changed the env settings to link it to my gmail account for testing ; pervious attempts with MailHog, but no connection achieved even after installing and configuring.
+
 ---
 
 ## Resources
@@ -346,6 +349,8 @@ Since the first deadline is this Wednesday and it must be deployed, my main focu
     - https://laravel.io/forum/03-16-2014-install-laravel-to-an-existing-folder
     - https://larainfo.com/blogs/how-to-install-laravel-project-in-current-directory
     - https://github.com/jenssegers/laravel-mongodb
+
+    - https://github.com/mailhog/MailHog/releases
 
 - Bug/small problems :
     - https://codeanddeploy.com/blog/laravel/laravel-8-authentication-login-and-registration-with-username-or-email

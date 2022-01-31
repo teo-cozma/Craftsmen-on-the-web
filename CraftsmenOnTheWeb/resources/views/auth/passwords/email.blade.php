@@ -18,7 +18,7 @@
                 <form class="w-full bg-form px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('password.email') }}">
                     @csrf
 
-                    <div class="container">
+                    {{-- <div class="container"> --}}
                         <div class="flex flex-wrap">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('E-Mail Address') }}:
@@ -34,7 +34,7 @@
                             </p>
                             @enderror
                         </div>
-                    </div>
+                    {{-- </div> --}}
                     
 
                     <div class="flex flex-wrap justify-center items-center space-y-6 pb-6 sm:pb-10 sm:space-y-0 sm:justify-between">

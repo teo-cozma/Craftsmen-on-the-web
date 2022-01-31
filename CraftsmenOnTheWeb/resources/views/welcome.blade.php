@@ -52,7 +52,7 @@
                         <h4>Title</h4>
                         <p>Author</p>
                         <br>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                 </div>
                 <div class="card">
@@ -62,7 +62,7 @@
                         <h4>Title</h4>
                         <p>Author</p>
                         <br>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                 </div>
             </div>
@@ -70,13 +70,13 @@
     </div>
 
     {{-- About section --}}
-    <div class="about" id="aboutUs">
+    <div class="about md:responsive" id="aboutUs">
         <div class="card">
-            <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
+            <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center h-full">
         </div>
-        <div class="card">
-            <h1 class="custom-h1">Who we are</h1>
-            <p class="px-3">
+        <div class="card p-6">
+            <h1 class="custom-h1 text-white">Who we are</h1>
+            <p class="px-3 text-white leading-normal">
                 All countries are complaining about a drop in activity in the craft industry. The industrial revolution, mass production and competition from emerging countries have literally destroyed a large part of the craft industry. Nowadays, craftsmanship is rather considered as a sector of the past where we see people trying to survive from day to day. But this is a false image conveyed by the media and the consumer society. Numerous studies show a huge upsurge in interest in handicrafts. The latter are more authentic and they benefit from an irreproachable finish unlike the products produced on the assembly line. Unfortunately, craftsmen are rarely present on the web, because they think that a website creation dedicated to craftsmanship is not interesting when it is the opposite.
                 <br><br>
                 Such is our mission : through this open platform of sharing ideas, visions, creations, we all bring to light the reality of craftsmanship as a sector that is still very much alive, as well as open to anyone curious and willing to get their hands in touch with various materials and tools, together with techniques, tradition or modern, which will allow them to create with their own hands.
@@ -86,7 +86,7 @@
 
     {{-- Contact section --}}
     <div class="contact" id="contactUs">
-        <div class="body-width flex flex-col">
+        <div class="body-width flex flex-col sm:responsive-width">
             <h1 class="custom-h1">Craft your network - send us a message</h1>
 
             <div class="flex mb-10">
@@ -102,7 +102,7 @@
                             enctype="multipart/form-data">
                             @csrf
 
-                            <div class="container">
+                            <div class="container md:responsive">
                                 <div class="flex flex-wrap">
                                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                         {{ __('Name') }}:

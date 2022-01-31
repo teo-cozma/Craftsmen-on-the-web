@@ -12,7 +12,7 @@
                     action="{{ route('register') }}">
                     @csrf
 
-                    <div class="container">
+                    <div class="container md:responsive">
                         <div class="flex flex-wrap">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('Name') }}:
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     
-                    <div class="container">
+                    <div class="container md:responsive">
                         <div class="flex flex-wrap">
                             <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('Password') }}:

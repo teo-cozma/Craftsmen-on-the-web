@@ -11,7 +11,7 @@
                 <form class="w-full bg-form px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <div class="container">
+                    <div class="container md:responsive">
                         <div class="flex flex-wrap">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('E-Mail Address') }}:
