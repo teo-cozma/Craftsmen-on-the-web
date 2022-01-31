@@ -4,16 +4,18 @@
 ### Languages and tools
 - VS code (text editor)
 - Adobe XD (prototyping)
-- Trello ? (organisation)
+- ~~Trello ? (organisation)~~
 
 - Backend :
     - Laravel
-    - Node JS
-    - Postman (testing APIs)
-    - MongoDB Atlas (creating the database ? see if it's possible to create a remote db, or thanks to Heroku)
+    - ~~Node JS~~
+    - ~~Postman (testing APIs)~~
+    - ~~ MongoDB Atlas(creating the database ? see if it's possible to create a remote db, or thanks to Heroku)~~
+    - MySQL
 - Frontend :
-    - React ? (**TBD**)
-    - Angular ? (**TBD**)
+    - ~~React ? (**TBD**)~~
+    - ~~Angular ? (**TBD**)~~
+    - Blade templates styled with TailwindCSS
 - Deployment : 
     - Heroku (+ remote DBA ? **TBD**)
 
@@ -80,15 +82,8 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
 - The steps to take, technologies that will be used.
     - Welcome page (Crafts community, Craft your network, the artisanal workshop brought to a collective digital front, The artisan's digital workshop)
         - Display of site logo, nav elements (sign up, login, about, contact) -> this will be common to all pages.
-        - Hero section :
-            - Welcome message
-            - "Wanna join ?" + "Already a member ?"
-            - Who we are / more about this site
-        - Footer :
-            - Contact information
-            - Social media logos
-            - Newsletter ?
-            - ...
+        - Hero section : Welcome message ; "Wanna join ?" + "Already a member ?" ; Who we are / more about this site.
+        - Footer : Contact information ; Social media logos ; Newsletter ?
         - (These elements, which are common to every page, can be rendered using EJS partials. However, there's a compatibility issue with React, so another method using React, or whichever framework I go with, will need to be researched.)
 
     - Registration (I believe the functionalities listed here + login are doable with Laravel ; since it's **PHP based**, I might have an easier time going about it. I might...):
@@ -124,55 +119,36 @@ I'm quite aware of the fact that in Brussels (even Belgium overall) has numerous
                     - Content (or body ? Whichever makes things **less** confusing)
                 - Database + API : 
                     - posts/all
-                    - posts/user
-                        - GET
-                    - posts/user/create
-                        - POST
-                    - posts/user/:id/edit
-                        - POST, DELETE, PATCH
-                    - posts/user/:id
-                        - GET
+                    - posts/user -> GET
+                    - posts/user/create -> POST
+                    - posts/user/:id/edit -> POST, DELETE, PATCH
+                    - posts/user/:id -> GET
             - Comments
-                - ***Comments schema***
-                    - Alias/name (find a way to automatically include this once the comment is submitted !!!)
-                    - Date (same principle)
-                    - Content
+                - ***Comments schema*** = Alias/name (find a way to automatically include this once the comment is submitted !!!) ; Date (same principle) ; Content.
                 - Displayed in most recent post (-1)
-                    - API : comments/all
-                        - GET
-                - Small form :
-                    - Content
-                    - Send button
+                    - API : comments/all -> GET
+                - Small form : Content + Send button
                 - All comments made by one user that only they can access, modify, delete (CRUD application here)
                     - API : 
-                        - comments/user
-                            - GET
-                        - comments/user/create
-                            - POST
-                        - comments/user/:id/edit
-                            - POST, DELETE, PATCH
-                        - comments/user/:id
-                            - GET
+                        - comments/user -> GET
+                        - comments/user/create -> POST
+                        - comments/user/:id/edit -> POST, DELETE, PATCH
+                        - comments/user/:id -> GET
                     - Idea : if(pseudo = user.pseudo) || (name = user.firstname) { display the edit/delete button on the respective comments } else { only display the comment, with no edit/delete button.}
 
-            - Navbar : 
-                - Added buttons for profile page (can be edited)
-                - Logout (end session)
-                - Searchbar for a particular craftsman or article ?
+            - Navbar : Added buttons for profile page (can be edited) ; Logout (end session) ; Searchbar for a particular craftsman or article ?
         
         - Profile page :
             - Profile displayed + button to go to an edit page
             - Profile edit page, forms :
                 - Modify basic information (see ***User schema***)
-                    - API :
-                        - user/edit-info
-                            - PATCH (update)
-                            - GET
+                    - API : user/edit-info
+                        - PATCH (update)
+                        - GET
                 - Modify profile information (see ***Profile schema***)
-                    - API :
-                        - user/edit-profile
-                            - PATCH (update)
-                            - GET
+                    - API : user/edit-profile
+                        - PATCH (update)
+                        - GET
 
 *How to use each technology ?*
 It looks like Laravel can be used as a Fullstack framework, or just serve the API backend. In the case of fullstack, the frontend will then be rendered with Blade templates (similar to EJS templates). In the latter case, the API backend can simply provide authentication and data storage/retrieval. Separate documentation exists for each scenario.
@@ -198,40 +174,40 @@ Mockup and graphic charter complete (though some tweaks might be made later ; ne
 Another summary outlining the major steps of this project, which pages to make, and what do they each contain (boxes will be checked with every day of progress) :
 
 0. All pages :
-    - [ ] Header = logo + Navbar (Home, News, About, Contact - STATIC)
-    - [ ] Footer = Copyright + Social media (LinkedIn, Github - STATIC)
+    - [x] Header = logo + Navbar (Home, News, About, Contact - STATIC)
+    - [x] Footer = Copyright + Social media (LinkedIn, Github - STATIC)
 
 1. Home/welcome page (user logged out - access only to this single, scroll-down page) :
-    - [ ] Hero section with welcome message
-        - [ ] Register link
-        - [ ] Login link
+    - [x] Hero section with welcome message
+        - [x] Register link
+        - [x] Login link
     - [ ] Latest news (DYNAMIC) = 2 recent posts
         - [ ] **POSTS database** = Picture, date, title, author, content
             - Try the Mongodb integration tutorial to test the post API for this page with some mock data, using Postman ! The good news is that they're very compatible when it comes to integration !
         - [ ] Get posts by date (most recent), limit = 2
             - ***GET ; /posts ; action: index ; route : posts.index***
-    - [ ] About section (STATIC) containing mission statement
-    - [ ] Contact form (STATIC)
-        - [ ] **CONTACT database**
+    - [x] About section (STATIC) containing mission statement
+    - [x] Contact form (STATIC)
+        - [x] **CONTACT database**
             - ***POST ; /contact ; action: index ; route : comment.index***
-        - [ ] POST new message
+        - [x] POST new message
 
 2. Sign up :
-    - [ ] 1st registration form (STATIC)
-        - [ ] **USER database** = Firstname, lastname, email, password (+ confirm password in form), profile.
+    - [x] 1st registration form (STATIC)
+        - [x] **USER database** = ~~Firstname, lastname,~~ Name, email, password (+ confirm password in form), profile.
             - ***POST ; /user ; action: create ; user.create***
         - Already a member ? Redirect to login page.
 
 3. Login :
-    - [ ] Login form (STATIC)
-        - [ ] **USER database** (just email and password -> authentication system)
-        - [ ] Not yet a member ? Redirect to sign up page.
-        - [ ] Forgot password ? Let's fix that !
+    - [x] Login form (STATIC)
+        - [x] **USER database** (just email and password -> authentication system)
+        - [x] Not yet a member ? Redirect to sign up page.
+        - [x] Forgot password ? Let's fix that !
 
 4. Forgot password :
-    - [ ] Password recovery form (STATIC)
-        - [ ] **USER database** (just email -> authentication system)
-            - [ ] Find out what are the functionalities behind this, as well as how to implement with Laravel.
+    - [x] Password recovery form (STATIC)
+        - [x] **USER database** (just email -> authentication system)
+            - [x] Find out what are the functionalities behind this, as well as how to implement with Laravel.
 
 5. Create profile (1st logged in) :
     - [ ] Profile form
@@ -330,6 +306,16 @@ Will continue working on making the home, register and login pages responsive an
 I also finally found the rights commands that would allow me to set up the authentication scaffolding with TailwindCSS ; this is a "replacement" for the defunct "make:auth" command that existed in previous Laravel versions (x5). However, the additional views that were added to my folders caused a lot of confusion and conflict with my "custom" views, controllers and stylesheet. Therefore, I started a new project from scratch : moving the old folder, creating a new Laravel project here (composer create-project --prefer-dist laravel/laravel Craftsmen on the web) and then adding the scaffolding for the authentication (composer require laravel-frontend-presets/tailwindcss --dev ; php artisan ui tailwindcss --auth) and finally compiling (npm install && npm run dev). 
 There was an issue with the mixing (''mix' is not recognized as an internal or external command, operable program or batch file.') so I had to run npm uninstall, run npm cache clear --force, reinstall all the dependencies, then npm audit fix to fix all the vulnerabilities that had been previously reported. Afterwards, ran npm run dev again and everything was compiled properly and rendering the views. I have been warned that this is not an ideal command to run and should only be used as a last resort. So far, no problems related to that appeared to interrupt my work.
 
+#### Day ten (28/01)
+Continuing with the assigned pages.
+
+#### Day eleven (31/01)
+Morning assessment : 
+The project is going well, at a steady pace. At this point, there are 4 pages that include their respective functionalities : the home page with a working contact form (albeit with no success message), the register and login pages that successfully create and save a new user to the database, and authenticate it, respectively, and a forgot password form. The boxes listed above are checked.
+However, on the home page, I have yet to dynamically insert 2 examples of articles that are included in the corresponding table in the database. Moreover, I have drifted more into the creation of a profile in order to understand what are the lines of code that need to be written in order for this to work, as both pages and both types of data would operate and be displayed using the same CRUD method. Also, using Tailwind CSS, it's been difficult to get the pages to be responsive. 
+
+Since the first deadline is this Wednesday and it must be deployed, my main focus today and tomorrow should be to make the entire project responsive (so learn more about Tailwind and how it can help me with this) and finding a suitable deployment method (maybe Heroku, although many have expressed it's difficult to use).
+
 ---
 
 ## Resources
@@ -369,3 +355,5 @@ There was an issue with the mixing (''mix' is not recognized as an internal or e
     - https://dev.to/kenfai/laravel-artisan-cache-commands-explained-41e1
 
     - https://aregsar.com/blog/2020/create-laravel-project-with-tailwind-ui-and-auth/
+
+    - https://www.positronx.io/laravel-contact-form-example-tutorial/
