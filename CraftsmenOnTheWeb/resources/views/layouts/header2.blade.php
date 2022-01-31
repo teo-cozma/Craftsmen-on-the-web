@@ -10,13 +10,13 @@
                 <div class="body-width">
                     <ul class="flex items-center justify-between flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
                         <li>
-                            <a href="/home" class="no-underline hover:underline text-sm font-normal uppercase" title="Main">Main</a>
+                            <a href="{{ route('home') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="Main">Main</a>
                         </li>
                         <li>
                             <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="News">Write</a>
                         </li>
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="About">Profile</a>
+                            <a href="{{ route('profile') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="About">Profile</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"

@@ -41,7 +41,7 @@
     </div>
 
     {{-- Latest news section --}}
-    <div class="stories">
+    <div class="stories" id="news">
         <div class="body-width flex flex-col">
             <h1 class="custom-h1">Latest news</h1>
             <div class="container md:responsive mb-10">
@@ -70,7 +70,7 @@
     </div>
 
     {{-- About section --}}
-    <div class="about">
+    <div class="about" id="aboutUs">
         <div class="card">
             <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
         </div>
@@ -85,48 +85,55 @@
     </div>
 
     {{-- Contact section --}}
-    <div class="contact">
+    <div class="contact" id="contactUs">
         <div class="body-width flex flex-col">
             <h1 class="custom-h1">Craft your network - send us a message</h1>
 
             <div class="flex mb-10">
                 <div class="w-full">
                     <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-        
-                        <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-form" method="POST"
-                            action="{{ route('register') }}">
-                            @csrf
-        
-                            <div class="flex flex-wrap">
-                                <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                    {{ __('Name') }}:
-                                </label>
-        
-                                <input id="name" type="text" 
-                                    class="form-input w-full bg-input @error('name')  border-red-500 @enderror"
-                                    name="name" value="{{ old('name') }}" required autocomplete="name">
-        
-                                @error('name')
-                                <p class="text-red-500 text-xs italic mt-4">
-                                    {{ $message }}
-                                </p>
-                                @enderror
+                        @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
                             </div>
-        
-                            <div class="flex flex-wrap">
-                                <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                    {{ __('E-Mail Address') }}:
-                                </label>
-        
-                                <input id="email" type="email"
-                                    class="form-input w-full bg-input @error('email') border-red-500 @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email">
-        
-                                @error('email')
-                                <p class="text-red-500 text-xs italic mt-4">
-                                    {{ $message }}
-                                </p>
-                                @enderror
+                        @endif
+                        <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-form" method="POST"
+                            action="{{ route('contact.store') }}"
+                            enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="container">
+                                <div class="flex flex-wrap">
+                                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                        {{ __('Name') }}:
+                                    </label>
+            
+                                    <input id="name" type="text" 
+                                        class="form-input w-full bg-input @error('name') border-red-500 @enderror"
+                                        name="name" value="{{ old('name') }}" required autocomplete="name">
+            
+                                    @error('name')
+                                    <p class="text-red-500 text-xs italic mt-4">
+                                        {{ $message }}
+                                    </p>
+                                    @enderror
+                                </div>
+            
+                                <div class="flex flex-wrap">
+                                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                        {{ __('E-Mail Address') }}:
+                                    </label>
+            
+                                    <input id="email" type="email"
+                                        class="form-input w-full bg-input @error('email') border-red-500 @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email">
+            
+                                    @error('email')
+                                    <p class="text-red-500 text-xs italic mt-4">
+                                        {{ $message }}
+                                    </p>
+                                    @enderror
+                                </div>
                             </div>
         
                             <div class="flex flex-wrap">

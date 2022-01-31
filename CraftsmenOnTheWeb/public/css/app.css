@@ -84,6 +84,9 @@ footer {
   width: 70%;
   margin: 0em auto;
 }
+.responsive-width {
+  width: 95%;
+}
 
 .stories {
   background-color: rgb(229, 212, 181, 0.7);

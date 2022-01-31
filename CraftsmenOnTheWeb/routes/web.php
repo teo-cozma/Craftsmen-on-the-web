@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest views //
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
 Auth::routes();
 
+Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
+
+// User views //
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'profilePage'])->name('profile');

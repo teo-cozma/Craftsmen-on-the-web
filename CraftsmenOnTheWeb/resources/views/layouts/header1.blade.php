@@ -12,16 +12,16 @@
                 <div class="body-width">
                     <ul class="flex items-center justify-between flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="Home">Home</a>
+                            <a href="{{ route('welcome') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="Home">Home</a>
                         </li>
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="News">News</a>
+                            <a href="{{ route('welcome', '#news') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="News">News</a>
                         </li>
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="About">About</a>
+                            <a href="{{ route('welcome', '#aboutUs') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="About">About</a>
                         </li>
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="Contact">Contact</a>
+                            <a href="{{ route('welcome', '#contactUs') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="Contact">Contact</a>
                         </li>
                     </ul>
                 </div>

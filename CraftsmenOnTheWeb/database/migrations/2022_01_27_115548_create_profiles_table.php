@@ -15,11 +15,14 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id()->nullable();
+            $table->bigInteger('user_id');
             $table->string('Alias', 50)->nullable(false);
             $table->string('Craft', 100)->nullable(false);
             $table->mediumText('Motivation')->nullable(false);
-            $table->binary('image')->nullable(true);
+            $table->binary('image')->nullable();
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 

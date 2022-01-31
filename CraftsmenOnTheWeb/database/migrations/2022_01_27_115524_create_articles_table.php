@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title', 50)->nullable(false);
             $table->string('author', 50)->nullable(false);
             $table->longText('body')->nullable(false);
-            $table->binary('image')->nullable(true);
+            $table->binary('image')->nullable();
             $table->timestamps();
         });
     }
