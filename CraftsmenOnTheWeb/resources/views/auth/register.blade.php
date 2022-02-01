@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="container md:responsive">
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-wrap md:mb-6">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('Name') }}:
                             </label>
@@ -46,7 +46,7 @@
                     </div>
                     
                     <div class="container md:responsive">
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-wrap md:mb-6">
                             <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('Password') }}:
                             </label>

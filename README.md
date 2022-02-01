@@ -311,13 +311,25 @@ Continuing with the assigned pages.
 
 #### Day eleven (31/01)
 Morning assessment : 
+
 The project is going well, at a steady pace. At this point, there are 4 pages that include their respective functionalities : the home page with a working contact form (albeit with no success message), the register and login pages that successfully create and save a new user to the database, and authenticate it, respectively, and a forgot password form. The boxes listed above are checked.
 However, on the home page, I have yet to dynamically insert 2 examples of articles that are included in the corresponding table in the database. Moreover, I have drifted more into the creation of a profile in order to understand what are the lines of code that need to be written in order for this to work, as both pages and both types of data would operate and be displayed using the same CRUD method. Also, using Tailwind CSS, it's been difficult to get the pages to be responsive. 
 
 Since the first deadline is this Wednesday and it must be deployed, my main focus today and tomorrow should be to make the entire project responsive (so learn more about Tailwind and how it can help me with this) and finding a suitable deployment method (maybe Heroku, although many have expressed it's difficult to use).
 
 Afternoon assessment : 
+
 Managed to make the layout much more responsive, however a few details still need some adjustements. Also, tested the password reset routes and controllers, modified the views according to the new style and changed the env settings to link it to my gmail account for testing ; pervious attempts with MailHog, but no connection achieved even after installing and configuring.
+
+#### Day tweleve (01/02)
+Morning assessment : 
+
+Before deployment, a few more tests : it looks like even after clicking on the logout button, I still can return to the previous page, so I need to fix that before moving on to the first deployment.
+
+Afternoon assessment : 
+
+Managed to resolve the logout issue (added some middleware, had to change the naming syntax for it to work properly!!!), and tweaked some responsive elements on the register/login forms.
+Time to get this deployed to Heroku.
 
 ---
 
@@ -362,3 +374,5 @@ Managed to make the layout much more responsive, however a few details still nee
     - https://aregsar.com/blog/2020/create-laravel-project-with-tailwind-ui-and-auth/
 
     - https://www.positronx.io/laravel-contact-form-example-tutorial/
+    - https://8bityard.com/how-to-prevent-back-button-after-logout-in-laravel-8/
+    - https://blog.webnersolutions.com/laravel-prevent-the-browser-back-button-to-access-pages-after-logout/

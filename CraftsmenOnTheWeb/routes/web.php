@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactsController;
+// use App\Http\Middleware\PreventBackHistory;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,12 @@ use App\Http\Controllers\ContactsController;
 Route::get('/', function() {return view('welcome');})->name('welcome');
 Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
 
-Auth::routes();
+Route::group(['middleware'=>'prevent_back_history'], function() {
+    Auth::routes();
+    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'profilePage'])->name('profile');
+}); // prevent back history middleware
+
 
 // Route::post('/password/email', [\App\Http\Controllers\ResetPasswordController::class, 'passwordRequestForm'])->name('passwords.email');
 
@@ -28,6 +34,3 @@ Auth::routes();
 // })->middleware('guest')->name('password.request');
 
 // User views //
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'profilePage'])->name('profile');

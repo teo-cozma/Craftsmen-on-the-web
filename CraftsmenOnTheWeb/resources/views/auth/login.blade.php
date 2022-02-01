@@ -12,7 +12,7 @@
                     @csrf
 
                     <div class="container md:responsive">
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-wrap md:mb-6">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('E-Mail Address') }}:
                             </label>

@@ -3,7 +3,7 @@
 @section('content')
 {{-- <main class="sm:container sm:mx-auto sm:mt-10"> --}}
 <main class="body-width">
-    <div class="w-full sm:px-6">
+    <div class="w-full sm:px-6 my-6">
 
         @if (session('status'))
             <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
@@ -19,6 +19,7 @@
 
             <div class="w-full p-6">
                 <p class="text-gray-700">
+                    {{-- Use the following line for the profile information --}}
                     Welcome {{ Auth::user()->name }}, fellow craftsman!
                 </p>
             </div>
