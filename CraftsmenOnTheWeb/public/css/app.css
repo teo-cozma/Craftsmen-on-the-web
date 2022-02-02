@@ -43,7 +43,8 @@ html {
 /* Custom elements */
 @font-face {
   font-family: victor-handwriting;
-  src: url('../fonts/victor-handwriting/victor.ttf');
+  /* src: url('../fonts/victor-handwriting/victor.ttf'); */
+  src: url('../victor.ttf');
 }
 @font-face {
   font-family: aspergit;
@@ -60,14 +61,16 @@ body {
   background-color: #9A240D;
   color: white;
   width: 100%;
-  padding: 1em;
+  padding: 1em 0em;
 }
 header, footer {
   background-color: #E5D4B5;
 }
 
 footer {
-  padding: 2em;
+  padding: 2em 0em;
+}
+footer > .body-width {
   display: flex;
   justify-content: space-between;
   margin: 0em auto;
@@ -100,7 +103,6 @@ footer {
   grid-gap: 1.5em;
 }
 
-
 @media (max-width: 992px) {
   .md\:responsive {
     display: grid;
@@ -128,6 +130,18 @@ footer {
 .text-white {
   color: white;
 }
+
+.form-border {
+  border: 1px solid #9A240D;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  font-size: [object Object];
+  line-height: 1.5;
+}
+
 
 /*
 1. Add the correct height in Firefox.
@@ -764,8 +778,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2.5rem;
 }
 
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .mt-4 {
   margin-top: 1rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;;
 }
 
 .mr-4 {
@@ -951,7 +974,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-6 {
   padding: 1.5rem;
 }
-
+.p-8 {
+  padding: 2rem;
+}
 .p-3 {
   padding: 0.75rem;
 }
@@ -1020,6 +1045,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.5rem;
 }
 
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1065,6 +1095,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-normal {
   line-height: 1.5;
+}
+.leading-higher {
+  line-height: 2;
 }
 
 .tracking-wider {

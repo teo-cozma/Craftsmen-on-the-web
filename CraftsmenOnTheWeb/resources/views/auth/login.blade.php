@@ -67,14 +67,14 @@
                         </button>
 
                         @if (Route::has('password.request'))
-                        <a class="w-full text-sm text-center hover:text-blue-700 whitespace-no-wrap no-underline hover:underline sm:mt-10"
+                        <a class="w-full text-sm text-center hover:text-blue-700 whitespace-no-wrap no-underline hover:underline my-6 sm:text-sm sm:my-8"
                             href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password? Let\'s fix that !') }}
                         </a>
                         @endif
 
                         @if (Route::has('register'))
-                        <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                        <p class="w-full text-sm  text-center text-gray-700 mb-6 sm:text-sm sm:mb-8">
                             {{ __("Don't have an account?") }}
                             <a class="hover:text-blue-700 no-underline hover:underline" href="{{ route('register') }}">
                                 {{ __('Register') }}

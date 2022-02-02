@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="body-width">
+  <main class="body-width mb-10 sm:responsive-width">
     @if (session('status'))
         <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
             {{ session('status') }}
@@ -9,34 +9,21 @@
     @endif
 
     <h1 class="custom-h1">Your profile</h1>
-    <h3>Alias</h3>
-    <p>Wood whisperer</p>
-    {{-- <p> {{ $user->name }} </p> --}}
-    <br><br>
-    <h3>Craft</h3>
-    <p>Carpentry</p>
-    <br><br>
-    <h3>Motivation</h3>
-    <p>Creating beautiful and functional pieces, bringing comfort and warmth to any home.</p>
-    <br><br>
+      <h3><strong>Alias</strong></h3>
+        <p class="warm-red leading-higher"> {{ Auth::user()->profile->Alias ?? 'N/A' }} </p>
+        <br><br>
+      <h3><strong>What's your craft ?</strong></h3>
+        <p class="warm-red leading-higher">{{ Auth::user()->profile->Craft ?? 'N/A' }}</p>
+        <br><br>
+      <h3><strong>What motivates your to create ?</strong></h3>
+        <p class="warm-red leading-higher">{{ Auth::user()->profile->Motivation ?? 'N/A' }}.</p>
+        <br>
 
-    {{-- <div class="w-full">
-      <table class="table-fixed">
-          <thead>
-            <tr>
-              <th>Alias</th>
-              <th>Craft</th>
-              <th>Motivation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Wood whisperer</td>
-              <td>Carpentry</td>
-              <td>Creating beautiful and functional pieces, bringing comfort and warmth to any home.</td>
-            </tr>
-          </tbody>
-        </table>
-    </div> --}}
-</main>
+    <h1 class="custom-h1">Basic information</h1>
+      <h3><strong>Name</strong></h3>
+        <p class="warm-red leading-higher"> {{ Auth::user()->name ?? 'N/A' }} </p>
+        <br><br>
+      <h3><strong>Email</strong></h3>
+        <p class="warm-red leading-higher">{{ Auth::user()->email ?? 'N/A' }}</p>
+  </main>
 @endsection

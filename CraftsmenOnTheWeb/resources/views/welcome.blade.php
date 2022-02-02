@@ -20,7 +20,7 @@
     </header>
 
     {{-- Welcome section --}}
-    <div class="body-width flex flex-col">
+    <div class="body-width flex flex-col sm:responsive-width">
         <h1 class="custom-h1">Welcome to our digital platform</h1>
 
         @if(Route::has('login'))
@@ -42,7 +42,7 @@
 
     {{-- Latest news section --}}
     <div class="stories" id="news">
-        <div class="body-width flex flex-col">
+        <div class="body-width flex flex-col sm:responsive-width">
             <h1 class="custom-h1">Latest news</h1>
             <div class="container md:responsive mb-10">
                 <div class="card">
@@ -74,12 +74,12 @@
         <div class="card">
             <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center h-full">
         </div>
-        <div class="card p-6">
-            <h1 class="custom-h1 text-white">Who we are</h1>
+        <div class="card p-8">
+            <h1 class="custom-h1 text-white mt-1">Who we are</h1>
             <p class="px-3 text-white leading-normal">
                 All countries are complaining about a drop in activity in the craft industry. The industrial revolution, mass production and competition from emerging countries have literally destroyed a large part of the craft industry. Nowadays, craftsmanship is rather considered as a sector of the past where we see people trying to survive from day to day. But this is a false image conveyed by the media and the consumer society. Numerous studies show a huge upsurge in interest in handicrafts. The latter are more authentic and they benefit from an irreproachable finish unlike the products produced on the assembly line. Unfortunately, craftsmen are rarely present on the web, because they think that a website creation dedicated to craftsmanship is not interesting when it is the opposite.
                 <br><br>
-                Such is our mission : through this open platform of sharing ideas, visions, creations, we all bring to light the reality of craftsmanship as a sector that is still very much alive, as well as open to anyone curious and willing to get their hands in touch with various materials and tools, together with techniques, tradition or modern, which will allow them to create with their own hands.
+                This is our core mission : sharing ideas, visions, creations thanks to an accessible platform, welcoming anyone curious about the various materials and tools, along with traditional or modern techniques, allowing them to create with their own hands. We hope to bring to light the reality of craftsmanship as a sector that is still very much alive.
             </p>
         </div>
     </div>
@@ -103,7 +103,7 @@
                             @csrf
 
                             <div class="container md:responsive">
-                                <div class="flex flex-wrap">
+                                <div class="flex flex-wrap md:mb-6">
                                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                         {{ __('Name') }}:
                                     </label>
@@ -157,7 +157,6 @@
                                 class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                                 {{ __('Submit') }}
                                 </button>
-        
                             </div>
                         </form>
         
@@ -167,8 +166,7 @@
         </div>
     </div>
 
-    <footer>
-        @include('layouts.footer')
-    </footer>
+    @include('layouts.footer')
+    
 </body>
 </html>

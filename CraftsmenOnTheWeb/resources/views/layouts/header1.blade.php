@@ -3,7 +3,7 @@
         <div>
             <h1 class="my-6 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl w-full">
                 <a href="/">
-                    <p class="font-['victor-handwriting'] text-9xl">Craftsmen</p> 
+                    <p class="font-['victor-handwriting'] text-8xl">Craftsmen</p> 
                     <p class="font-['aspergit'] text-4xl uppercase">On the Web</p> 
                 </a>
                 

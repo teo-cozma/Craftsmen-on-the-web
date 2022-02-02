@@ -78,7 +78,7 @@
                             {{ __('Register') }}
                         </button>
 
-                        <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                        <p class="w-full text-sm text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                             {{ __('Already a member ?') }}
                             <a class="text-warm-red hover:text-blue-700 no-underline hover:underline" href="{{ route('login') }}">
                                 {{ __('Login') }}

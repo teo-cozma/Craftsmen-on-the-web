@@ -2,7 +2,7 @@
     <div class="flex flex-col justify-around h-full w-full">
         <div>
             <h1 class="my-6 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl w-full">
-                <p class="font-['victor-handwriting'] text-9xl">Craftsmen</p> 
+                <p class="font-['victor-handwriting'] text-8xl">Craftsmen</p> 
                 <p class="font-['aspergit'] text-4xl uppercase">On the Web</p> 
             </h1>
 
@@ -13,7 +13,7 @@
                             <a href="{{ route('home') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="Main">Main</a>
                         </li>
                         <li>
-                            <a href="/" class="no-underline hover:underline text-sm font-normal uppercase" title="News">Write</a>
+                            <a href="{{ route('write.create') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="News">Write</a>
                         </li>
                         <li>
                             <a href="{{ route('profile') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="About">Profile</a>

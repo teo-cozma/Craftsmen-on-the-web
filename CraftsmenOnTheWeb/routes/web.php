@@ -20,9 +20,19 @@ Route::get('/', function() {return view('welcome');})->name('welcome');
 Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
 
 Route::group(['middleware'=>'prevent_back_history'], function() {
+    // Authentication routes
     Auth::routes();
+    
+    // Logged in - main page rendered with all articles + search bar
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    // Article routes
+    Route::get('/write', [\App\Http\Controllers\ArticlesController::class, 'create'])->name('write.create');
+    Route::post('/write', [\App\Http\Controllers\ArticlesController::class, 'store'])->name('write.store');
+    
     Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profile');
+
+
 }); // prevent back history middleware
 
 

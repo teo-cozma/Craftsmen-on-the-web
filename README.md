@@ -10,8 +10,8 @@
     - Laravel
     - ~~Node JS~~
     - ~~Postman (testing APIs)~~
-    - ~~ MongoDB Atlas(creating the database ? see if it's possible to create a remote db, or thanks to Heroku)~~
-    - MySQL
+    - ~~MongoDB Atlas(creating the database ? see if it's possible to create a remote db, or thanks to Heroku)~~
+    - MySQL (database)
 - Frontend :
     - ~~React ? (**TBD**)~~
     - ~~Angular ? (**TBD**)~~
@@ -321,7 +321,7 @@ Afternoon assessment :
 
 Managed to make the layout much more responsive, however a few details still need some adjustements. Also, tested the password reset routes and controllers, modified the views according to the new style and changed the env settings to link it to my gmail account for testing ; pervious attempts with MailHog, but no connection achieved even after installing and configuring.
 
-#### Day tweleve (01/02)
+#### Day twelve (01/02)
 Morning assessment : 
 
 Before deployment, a few more tests : it looks like even after clicking on the logout button, I still can return to the previous page, so I need to fix that before moving on to the first deployment.
@@ -330,6 +330,22 @@ Afternoon assessment :
 
 Managed to resolve the logout issue (added some middleware, had to change the naming syntax for it to work properly!!!), and tweaked some responsive elements on the register/login forms.
 Time to get this deployed to Heroku.
+
+#### Day thirteen (02/02)
+Attempts to compile and deploy the app to Heroku. Series of issues :
+1. `Composer require laravel/ui` apparently was not included and was therefore needed to use the Auth::Routes(). Also ran composer update just in case.
+2. Later, the build was successful, but got 403 Forbidden error. Resolved that by adding a new script in the composer.json file (`"php artisan clear-compiled", "chmod -R 777 public/"`).
+3. Subsequent build successful and app accessed, but missing Victor's handwriting font in the first part of the logo. The issue mmight have to do with precompiling the css files, since apparently this configuration is not available in Heroku.
+
+Link to current deployed app : https://powerful-shore-70358.herokuapp.com/ 
+
+Afternoon :
+
+Back to development : the next page I need to configure is the profile page, since I already have that table set up with some existing data. The issue is passing that data into the view dynamically. It's difficult to manage which lines of code go in which file, controller, model, routes...
+
+Evening :
+
+More work on the profile : finally managed to get dynamic data into the views earlier today. Resolved an issue with MySQL shutting down unexpectedly in XAMPP. Found a solution and copied it for safe keeping!
 
 ---
 
@@ -376,3 +392,8 @@ Time to get this deployed to Heroku.
     - https://www.positronx.io/laravel-contact-form-example-tutorial/
     - https://8bityard.com/how-to-prevent-back-button-after-logout-in-laravel-8/
     - https://blog.webnersolutions.com/laravel-prevent-the-browser-back-button-to-access-pages-after-logout/
+
+    - https://stackoverflow.com/questions/47619860/laravel-5-4-on-heroku-forbidden-you-dont-have-permission-to-access-on-this-s
+    - https://teamtreehouse.com/community/missing-css-on-heroku-deployment
+
+    - https://stackoverflow.com/questions/18022809/how-to-solve-error-mysql-shutdown-unexpectedly

@@ -12,10 +12,10 @@ class ProfilesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user, Profile $profile)
+    public function index(User $user)
     {
         // return view('profile');
-        // $user = User::find($user);
+        // $user = User::findOrFail($user);
         $profile = Profile::whereBelongsTo($user)->get();
         return view('profile', [
             'user' => $user,
