@@ -22,7 +22,7 @@ Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->na
 Route::group(['middleware'=>'prevent_back_history'], function() {
     Auth::routes();
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'profilePage'])->name('profile');
+    Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profile');
 }); // prevent back history middleware
 
 

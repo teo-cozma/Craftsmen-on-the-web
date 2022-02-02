@@ -12,9 +12,15 @@ class ProfilesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(User $user, Profile $profile)
     {
+        // return view('profile');
+        // $user = User::find($user);
         $profile = Profile::whereBelongsTo($user)->get();
+        return view('profile', [
+            'user' => $user,
+            'profile' => $profile,
+        ]);
     }
 
     // public function profile(User $user)
