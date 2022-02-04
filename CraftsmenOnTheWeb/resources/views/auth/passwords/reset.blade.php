@@ -16,7 +16,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('E-Mail Address') }}:
+                            {{ __('E-Mail Address') }}
                         </label>
 
                         <input id="email" type="email"
@@ -32,7 +32,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Password') }}:
+                            {{ __('Password') }}
                         </label>
 
                         <input id="password" type="password"
@@ -48,7 +48,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Confirm Password') }}:
+                            {{ __('Confirm Password') }}
                         </label>
 
                         <input id="password-confirm" type="password" class="form-input bg-input w-full"

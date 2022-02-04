@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ProfilesController;
 // use App\Http\Middleware\PreventBackHistory;
 
 /*
@@ -30,17 +31,10 @@ Route::group(['middleware'=>'prevent_back_history'], function() {
     Route::get('/write', [\App\Http\Controllers\ArticlesController::class, 'create'])->name('write.create');
     Route::post('/write', [\App\Http\Controllers\ArticlesController::class, 'store'])->name('write.store');
     
-    Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profile');
+    // Profile routes
+    Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profiles.profile');
+    Route::get('/profile/{user}/edit', [\App\Http\Controllers\ProfilesController::class, 'edit'])->name('profiles.edit');
+    Route::patch('/profile', [\App\Http\Controllers\ProfilesController::class, 'update'])->name('profiles.update');
 
 
 }); // prevent back history middleware
-
-
-// Route::post('/password/email', [\App\Http\Controllers\ResetPasswordController::class, 'passwordRequestForm'])->name('passwords.email');
-
-
-// Route::get('/forgot-password', function () {
-//     return view('auth.forgot-password');
-// })->middleware('guest')->name('password.request');
-
-// User views //

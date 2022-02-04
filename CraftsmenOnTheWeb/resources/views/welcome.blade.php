@@ -154,7 +154,7 @@
         
                             <div class="flex flex-wrap pb-8 warm-red">
                                 <button type="submit"
-                                class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                                class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                                 {{ __('Submit') }}
                                 </button>
                             </div>

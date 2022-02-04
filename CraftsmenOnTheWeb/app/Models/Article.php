@@ -9,6 +9,12 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $table = 'articles';
+    
+    protected $primaryKey = 'id';
+    
+    protected $fillable = ['date', 'title', 'alias', 'content'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

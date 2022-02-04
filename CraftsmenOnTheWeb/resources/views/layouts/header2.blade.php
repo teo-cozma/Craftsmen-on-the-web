@@ -16,7 +16,7 @@
                             <a href="{{ route('write.create') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="News">Write</a>
                         </li>
                         <li>
-                            <a href="{{ route('profile') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="About">Profile</a>
+                            <a href="{{ route('profiles.profile') }}" class="no-underline hover:underline text-sm font-normal uppercase" title="About">Profile</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"

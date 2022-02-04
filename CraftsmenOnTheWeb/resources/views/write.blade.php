@@ -20,14 +20,14 @@
                 </div>
             @endif
             <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100" method="POST"
-                {{-- action="{{ route('write.store') }}" --}}
+                action="{{ route('write.store') }}"
                 enctype="multipart/form-data">
                 @csrf
 
                 <div class="container md:responsive">
                     <div class="flex flex-wrap md:mb-6">
                         <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Date') }}:
+                            {{ __('Date') }}
                         </label>
 
                         <input id="date" type="text" 
@@ -43,7 +43,7 @@
 
                     <div class="flex flex-wrap md:mb-6">
                         <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Title') }}:
+                            {{ __('Title') }}
                         </label>
 
                         <input id="title" type="text"
@@ -59,7 +59,7 @@
 
                     <div class="flex flex-wrap md:mb-6">
                         <label for="alias" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Alias') }}:
+                            {{ __('Alias') }}
                         </label>
 
                         <input id="alias" type="text"
@@ -75,11 +75,11 @@
                     
                     <div class="flex flex-wrap">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Image (optional)') }}:
+                            {{ __('Image (optional)') }}
                         </label>
 
                         <input id="image" type="file"
-                            class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror" name="image"
+                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
                             value="{{ old('image') }}" autocomplete="image">
 
                         @error('image')
@@ -92,7 +92,7 @@
 
                 <div class="flex flex-wrap">
                     <label for="content" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                        {{ __('Content') }}:
+                        {{ __('Content') }}
                     </label>
 
                     <textarea id="content" type="text"
@@ -108,7 +108,7 @@
 
                 <div class="flex flex-wrap pb-8 warm-red">
                     <button type="submit"
-                    class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                    class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                     {{ __('Publish') }}
                     </button>
                 </div>

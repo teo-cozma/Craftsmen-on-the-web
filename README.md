@@ -347,6 +347,14 @@ Evening :
 
 More work on the profile : finally managed to get dynamic data into the views earlier today. Resolved an issue with MySQL shutting down unexpectedly in XAMPP. Found a solution and copied it for safe keeping!
 
+
+#### Day fourteen (03/02)
+Spent the day trying to get the Profile controllers up and running, however, ran into numerous problems again with XAMPP disconnecting from MySQL. I strongly suspect this has to do with the computer crash from the previous day after my first crappy (and somehow corrupted) attempt at installing Heroku. For the time being, I just did as much as I could to write the update function for the profile.
+
+#### Day fifteen (05/02)
+Will continue working on the profile routes (same for this weekend, if nothing still works).
+
+
 ---
 
 ## Resources
@@ -397,3 +405,5 @@ More work on the profile : finally managed to get dynamic data into the views ea
     - https://teamtreehouse.com/community/missing-css-on-heroku-deployment
 
     - https://stackoverflow.com/questions/18022809/how-to-solve-error-mysql-shutdown-unexpectedly
+    - https://kinsta.com/knowledgebase/xampp-mysql-shutdown-unexpectedly/
+    - https://mariadb.com/kb/en/innodb-recovery-modes/

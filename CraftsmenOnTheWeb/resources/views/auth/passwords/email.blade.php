@@ -21,7 +21,7 @@
                     {{-- <div class="container"> --}}
                         <div class="flex flex-wrap">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('E-Mail Address') }}:
+                                {{ __('E-Mail Address') }}
                             </label>
     
                             <input id="email" type="email"

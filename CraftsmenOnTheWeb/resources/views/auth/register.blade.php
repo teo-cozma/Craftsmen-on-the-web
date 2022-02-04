@@ -15,7 +15,7 @@
                     <div class="container md:responsive">
                         <div class="flex flex-wrap md:mb-6">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('Name') }}:
+                                {{ __('Name') }}
                             </label>
     
                             <input id="name" type="text" class="form-input w-full bg-input @error('name')  border-red-500 @enderror"
@@ -30,7 +30,7 @@
     
                         <div class="flex flex-wrap">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('E-Mail Address') }}:
+                                {{ __('E-Mail Address') }}
                             </label>
     
                             <input id="email" type="email"
@@ -48,7 +48,7 @@
                     <div class="container md:responsive">
                         <div class="flex flex-wrap md:mb-6">
                             <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('Password') }}:
+                                {{ __('Password') }}
                             </label>
     
                             <input id="password" type="password"
@@ -64,7 +64,7 @@
     
                         <div class="flex flex-wrap">
                             <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('Confirm Password') }}:
+                                {{ __('Confirm Password') }}
                             </label>
     
                             <input id="password-confirm" type="password" class="form-input w-full bg-input"
@@ -74,7 +74,7 @@
 
                     <div class="flex flex-wrap">
                         <button type="submit"
-                            class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                            class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                             {{ __('Register') }}
                         </button>
 

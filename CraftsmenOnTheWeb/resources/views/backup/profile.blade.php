@@ -8,9 +8,14 @@
         </div>
     @endif
 
-    <h1 class="custom-h1">Your profile</h1>
+    <div class="flex justify-between items-center">
+      <h1 class="custom-h1">Your profile</h1>
+      <a href="/profile/{{ Auth::user()->id }}/edit" class=" hover:underline">Edit</a>
+    </div>
+    
       <h3><strong>Alias</strong></h3>
         <p class="warm-red leading-higher"> {{ Auth::user()->profile->Alias ?? 'N/A' }} </p>
+        <p class="warm-red leading-higher"> {{ Auth::user()->id }} </p>
         <br><br>
       <h3><strong>What's your craft ?</strong></h3>
         <p class="warm-red leading-higher">{{ Auth::user()->profile->Craft ?? 'N/A' }}</p>
