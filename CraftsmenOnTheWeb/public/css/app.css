@@ -91,6 +91,10 @@ footer > .body-width {
   margin: 0em auto;
 }
 
+.article_img_height {
+  height: 50%;
+}
+
 @media (max-width: 768px) {
   .sm\:responsive-width {
     width: 95%;
@@ -145,6 +149,9 @@ footer > .body-width {
   line-height: 1.5;
 }
 
+.article-bg {
+  background-color: rgb(229, 212, 181, 0.7);
+}
 
 /*
 1. Add the correct height in Firefox.
@@ -832,6 +839,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-full {
   height: 100%;
+}
+
+.h-3\/\5 {
+  height: 60%;
 }
 
 .min-h-screen {

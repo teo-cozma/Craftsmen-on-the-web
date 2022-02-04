@@ -11,7 +11,7 @@
             </div>
         @endif
         
-        <h1 class="custom-h1">What's your story ? Any recent discoveries, or events ?</h1>
+        <h1 class="custom-h1">What's your story ? Any recent discoveries or events ?</h1>
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
             
             @if(Session::has('success'))
@@ -20,7 +20,7 @@
                 </div>
             @endif
             <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100" method="POST"
-                action="{{ route('write.store') }}"
+                action="{{ route('articles.write.store') }}"
                 enctype="multipart/form-data">
                 @csrf
 
@@ -32,7 +32,7 @@
 
                         <input id="date" type="text" 
                             class="form-border w-full bg-gray-100 @error('name') border-red-500 @enderror"
-                            name="date" value="{{ old('date') }}" required autocomplete="date">
+                            name="date" value="{{ old('date') }}" required autocomplete="date" placeholder="yyyy-mm-dd">
 
                         @error('date')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -48,7 +48,7 @@
 
                         <input id="title" type="text"
                             class="form-border w-full bg-gray-100 @error('title') border-red-500 @enderror" name="title"
-                            value="{{ old('title') }}" required autocomplete="title">
+                            value="{{ old('title') }}" required autocomplete="title" placeholder="Short and sweet">
 
                         @error('title')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -58,15 +58,15 @@
                     </div>
 
                     <div class="flex flex-wrap md:mb-6">
-                        <label for="alias" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Alias') }}
+                        <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Author') }}
                         </label>
 
-                        <input id="alias" type="text"
-                            class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror" name="alias"
-                            value="{{ old('alias') }}" required autocomplete="alias">
+                        <input id="author" type="text"
+                            class="form-border w-full bg-gray-100 @error('author') border-red-500 @enderror" name="author"
+                            value="{{ old('author') }}" required autocomplete="author" placeholder="Name or alias">
 
-                        @error('alias')
+                        @error('author')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
                         </p>
@@ -91,15 +91,14 @@
                 </div>
 
                 <div class="flex flex-wrap">
-                    <label for="content" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                        {{ __('Content') }}
+                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        {{ __('Body') }}
                     </label>
 
-                    <textarea id="content" type="text"
-                        class="form-border w-full bg-gray-100 @error('content') border-red-500 @enderror" name="content"
-                        required autocomplete="content">
-                    </textarea>
-                    @error('content')
+                    <textarea id="body" type="text"
+                        class="form-border w-full bg-gray-100 @error('body') border-red-500 @enderror" name="body"
+                        required autocomplete="body"></textarea>
+                    @error('body')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>

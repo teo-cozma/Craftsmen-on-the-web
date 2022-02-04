@@ -353,6 +353,7 @@ Spent the day trying to get the Profile controllers up and running, however, ran
 
 #### Day fifteen (05/02)
 Will continue working on the profile routes (same for this weekend, if nothing still works).
+Update functionalities now working for the profile (alias, craft, motivation). Moved on to rendering the articles view on the home page, and selecting individual articles with their own view ; had some trouble with querying the db, but I figured out that all I had to do was change the 'where' condition (from 'id' to 'title').
 
 
 ---

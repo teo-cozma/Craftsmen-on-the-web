@@ -28,13 +28,16 @@ Route::group(['middleware'=>'prevent_back_history'], function() {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
     // Article routes
-    Route::get('/write', [\App\Http\Controllers\ArticlesController::class, 'create'])->name('write.create');
-    Route::post('/write', [\App\Http\Controllers\ArticlesController::class, 'store'])->name('write.store');
+    Route::get('/write', [\App\Http\Controllers\ArticlesController::class, 'create'])->name('articles.write.create');
+    Route::post('/write', [\App\Http\Controllers\ArticlesController::class, 'store'])->name('articles.write.store');
+
+    Route::get('/article/{article}', [\App\Http\Controllers\ArticlesController::class, 'show'])->name('articles.show');
     
     // Profile routes
     Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profiles.profile');
     Route::get('/profile/{user}/edit', [\App\Http\Controllers\ProfilesController::class, 'edit'])->name('profiles.edit');
-    Route::patch('/profile', [\App\Http\Controllers\ProfilesController::class, 'update'])->name('profiles.update');
+    Route::post('/profile', [\App\Http\Controllers\ProfilesController::class, 'store'])->name('profiles.store');
+    Route::patch('/profile/{user}/edit', [\App\Http\Controllers\ProfilesController::class, 'update'])->name('profiles.update');
 
 
 }); // prevent back history middleware

@@ -18,7 +18,7 @@
                                 {{ __('Name') }}
                             </label>
     
-                            <input id="name" type="text" class="form-input w-full bg-input @error('name')  border-red-500 @enderror"
+                            <input id="name" type="text" class="form-input w-full bg-input @error('name') border-red-500 @enderror"
                                 name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
     
                             @error('name')

@@ -10,6 +10,7 @@
 
     <div class="flex justify-between items-center">
       <h1 class="custom-h1">Your profile</h1>
+      {{-- <a href="/profile/{{ Auth::user()->id }}/{{ route('profiles.edit') }}" class=" hover:underline">Edit</a> --}}
       <a href="/profile/{{ Auth::user()->id }}/edit" class=" hover:underline">Edit</a>
     </div>
     
@@ -20,7 +21,7 @@
         <p class="warm-red leading-higher">{{ Auth::user()->profile->Craft ?? 'N/A' }}</p>
         <br><br>
       <h3><strong>What motivates your to create ?</strong></h3>
-        <p class="warm-red leading-higher">{{ Auth::user()->profile->Motivation ?? 'N/A' }}.</p>
+        <p class="warm-red leading-higher">{{ Auth::user()->profile->Motivation ?? 'N/A' }}</p>
         <br>
 
     <h1 class="custom-h1">Basic information</h1>

@@ -22,11 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = DB::table('articles')
-            ->orderBy('created_at', 'desc')
-            ->get();
-        return view('home');
+        $articles = DB::table('articles')->latest()->get();
+        return view('home', compact('articles'));
+        // return view('home')->with($articles);
     }
 }

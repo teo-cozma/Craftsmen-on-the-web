@@ -9,11 +9,13 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $table = 'articles';
     
     protected $primaryKey = 'id';
     
-    protected $fillable = ['date', 'title', 'alias', 'content'];
+    protected $fillable = ['date', 'title', 'author', 'body'];
 
     public function user()
     {

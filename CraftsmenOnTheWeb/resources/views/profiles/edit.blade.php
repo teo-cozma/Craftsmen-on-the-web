@@ -11,20 +11,118 @@
             </div>
         @endif
         
+        @if (Auth::user()->profile === null)
+            <div class="flex justify-between items-center">
+                <h1 class="custom-h1">Welcome fellow craftsman ! <br> Tell us a bit more about yourself</h1>
+                <a href="{{ route('profiles.profile') }}" class=" hover:underline">Skip for now</a>
+            </div>
+
+            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                
+                @if(Session::has('success'))
+                    <div class="alert alert-success py-4">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+
+                <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100" method="POST"
+                    {{-- action="/profile/{id}/edit" --}}
+                    action="/profile"
+                    enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="container md:responsive">
+                        <div class="flex flex-wrap md:mb-6">
+                            <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Image (optional)') }}
+                            </label>
+
+                            <input id="image" type="file"
+                                class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
+                                value="{{ old('image') }}">
+
+                            @error('image')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+
+                        <div class="flex flex-wrap md:mb-6">
+                            <label for="alias" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Alias') }}
+                            </label>
+
+                            <input id="alias" type="text" 
+                                class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror"
+                                name="alias" value="{{ old('alias') }}" required autocomplete="alias">
+
+                            @error('alias')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+
+                        <div class="flex flex-wrap md:mb-6">
+                            <label for="craft" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('What\'s your craft ?') }}
+                            </label>
+
+                            <input id="craft" type="text"
+                                class="form-border w-full bg-gray-100 @error('craft') border-red-500 @enderror" name="craft"
+                                value="{{ old('craft') }}" required autocomplete="craft">
+
+                            @error('craft')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+
+                        <div class="flex flex-wrap md:mb-6">
+                            <label for="motivation" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('What motivates you to create ?') }}
+                            </label>
+
+                            <input id="motivation" type="text"
+                                class="form-border w-full bg-gray-100 @error('motivation') border-red-500 @enderror" name="motivation"
+                                value="{{ old('motivation') }}" autocomplete="motivation">
+                            
+                            @error('motivation')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap pb-8 warm-red">
+                        <button type="submit"
+                        class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                        {{ __('Submit') }}
+                        </button>
+                    </div>
+                </form>
+            </section>
+        @endif
+
+        
         <div class="flex justify-between items-center">
             <h1 class="custom-h1">Edit your profile</h1>
-            <a href="/profile" class=" hover:underline">Cancel</a>
+            <a href="{{ route('profiles.profile') }}" class=" hover:underline">Cancel</a>
         </div>
 
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
             
             @if(Session::has('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success py-4">
                     {{Session::get('success')}}
                 </div>
             @endif
 
             <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100" method="POST"
+                {{-- action="/profile/{id}/edit" --}}
                 action="/profile/{{ Auth::user()->id }}/edit"
                 enctype="multipart/form-data">
                 @csrf
@@ -54,7 +152,7 @@
 
                         <input id="alias" type="text" 
                             class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror"
-                            name="alias" value="{{ old('alias') ?? Auth::user()->profile->Alias }}" required autocomplete="alias">
+                            name="alias" value="{{ Auth::user()->profile->Alias ?? 'N/A' }}" required autocomplete="alias">
 
                         @error('alias')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -70,7 +168,7 @@
 
                         <input id="craft" type="text"
                             class="form-border w-full bg-gray-100 @error('craft') border-red-500 @enderror" name="craft"
-                            value="{{ old('craft') ?? Auth::user()->profile->Craft }}" required autocomplete="craft">
+                            value="{{ Auth::user()->profile->Craft ?? 'N/A' }}" required autocomplete="craft">
 
                         @error('craft')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -84,10 +182,10 @@
                             {{ __('What motivates you to create ?') }}
                         </label>
 
-                        <textarea id="motivation" type="text"
+                        <input id="motivation" type="text"
                             class="form-border w-full bg-gray-100 @error('motivation') border-red-500 @enderror" name="motivation"
-                            value="{{ old('motivation') ?? Auth::user()->profile->Motivation }}" autocomplete="motivation">
-                        </textarea>
+                            value="{{ Auth::user()->profile->Motivation ?? 'N/A' }}" autocomplete="motivation">
+                        
                         @error('motivation')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
@@ -104,7 +202,7 @@
                 </div>
             </form>
         </section>
-
+       
         {{-- <h1 class="custom-h1">Edit your information</h1>
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
             
