@@ -13,7 +13,10 @@
        
         <div class="flex justify-between items-center">
             <h1 class="custom-h1">Edit, update or remove your story</h1>
-            <a href="" class=" hover:underline">Cancel</a>
+            {{-- <a href="{{ route('articles.article.show') }}" class=" hover:underline">Cancel</a> --}}
+            <a href="" class=" hover:underline">Delete</a>
+            <a href="/article/{{ $article->title }}" class=" hover:underline">Cancel</a>
+            {{-- <a href="{{ route('articles.show', 'show') }}" class=" hover:underline">Cancel</a> --}}
         </div>
 
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
@@ -25,21 +28,68 @@
             @endif
 
             <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100" method="POST"
-                {{-- action="/profile/{id}/edit" --}}
-                action="/write/{{ Auth::user()->id }}/edit"
+                action="/article/{{ $article->title }}/edit"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
                 <div class="container md:responsive">
                     <div class="flex flex-wrap md:mb-6">
+                        <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Date') }}
+                        </label>
+
+                        <input id="date" type="text" 
+                            class="form-border w-full bg-gray-100 @error('name') border-red-500 @enderror"
+                            name="date" value="{{ $article->date }}" required autocomplete="date" placeholder="yyyy-mm-dd">
+
+                        @error('date')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap md:mb-6">
+                        <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Title') }}
+                        </label>
+
+                        <input id="title" type="text"
+                            class="form-border w-full bg-gray-100 @error('title') border-red-500 @enderror" name="title"
+                            value="{{ $article->title }}" required autocomplete="title" placeholder="Short and sweet">
+
+                        @error('title')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap md:mb-6">
+                        <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Author') }}
+                        </label>
+
+                        <input id="author" type="text"
+                            class="form-border w-full bg-gray-100 @error('author') border-red-500 @enderror" name="author"
+                            value="{{ $article->author }}" required autocomplete="author" placeholder="Name or alias">
+
+                        @error('author')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+                    
+                    <div class="flex flex-wrap">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Image (optional)') }}
                         </label>
 
                         <input id="image" type="file"
                             class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ old('image') }}">
+                            value="{{ $article->image ?? 'N/A' ?? old('image') }}" autocomplete="image">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -47,54 +97,21 @@
                         </p>
                         @enderror
                     </div>
+                </div>
 
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="alias" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Alias') }}
-                        </label>
+                <div class="flex flex-wrap">
+                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        {{ __('Body') }}
+                    </label>
 
-                        <input id="alias" type="text" 
-                            class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror"
-                            name="alias" value="{{ Auth::user()->profile->Alias ?? 'N/A' }}" required autocomplete="alias">
-
-                        @error('alias')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
-
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="craft" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('What\'s your craft ?') }}
-                        </label>
-
-                        <input id="craft" type="text"
-                            class="form-border w-full bg-gray-100 @error('craft') border-red-500 @enderror" name="craft"
-                            value="{{ Auth::user()->profile->Craft ?? 'N/A' }}" required autocomplete="craft">
-
-                        @error('craft')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
-
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="motivation" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('What motivates you to create ?') }}
-                        </label>
-
-                        <input id="motivation" type="text"
-                            class="form-border w-full bg-gray-100 @error('motivation') border-red-500 @enderror" name="motivation"
-                            value="{{ Auth::user()->profile->Motivation ?? 'N/A' }}" autocomplete="motivation">
-                        
-                        @error('motivation')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
+                    <textarea id="body" type="text" rows="4" cols="50"
+                        class="form-border w-full bg-gray-100 @error('body') border-red-500 @enderror" name="body"
+                        required autocomplete="body">{{ $article->body }}</textarea>
+                    @error('body')
+                    <p class="text-red-500 text-xs italic mt-4">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
 
                 <div class="flex flex-wrap pb-8 warm-red">

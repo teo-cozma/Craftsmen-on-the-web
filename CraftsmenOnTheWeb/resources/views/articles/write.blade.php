@@ -25,62 +25,65 @@
                 @csrf
 
                 <div class="container md:responsive">
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Date') }}
-                        </label>
-
-                        <input id="date" type="text" 
-                            class="form-border w-full bg-gray-100 @error('name') border-red-500 @enderror"
-                            name="date" value="{{ old('date') }}" required autocomplete="date" placeholder="yyyy-mm-dd">
-
-                        @error('date')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
-
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Title') }}
-                        </label>
-
-                        <input id="title" type="text"
-                            class="form-border w-full bg-gray-100 @error('title') border-red-500 @enderror" name="title"
-                            value="{{ old('title') }}" required autocomplete="title" placeholder="Short and sweet">
-
-                        @error('title')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-                    </div>
-
-                    <div class="flex flex-wrap md:mb-6">
-                        <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Author') }}
-                        </label>
-
-                        <input id="author" type="text"
-                            class="form-border w-full bg-gray-100 @error('author') border-red-500 @enderror" name="author"
-                            value="{{ old('author') }}" required autocomplete="author" placeholder="Name or alias">
-
-                        @error('author')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
+                    <div>
+                        <div class="flex flex-wrap mb-4 md:mb-6">
+                            <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Date') }}
+                            </label>
+    
+                            <input id="date" type="text" 
+                                class="form-border w-full bg-gray-100 @error('name') border-red-500 @enderror"
+                                name="date" value="{{ old('date') }}" required autocomplete="date" placeholder="yyyy-mm-dd">
+    
+                            @error('date')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+    
+                        <div class="flex flex-wrap mb-4 md:mb-6">
+                            <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Title') }}
+                            </label>
+    
+                            <input id="title" type="text"
+                                class="form-border w-full bg-gray-100 @error('title') border-red-500 @enderror" name="title"
+                                value="{{ old('title') }}" required autocomplete="title" placeholder="Short and sweet">
+    
+                            @error('title')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+    
+                        <div class="flex flex-wrap mb-4 md:mb-6">
+                            <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Author') }}
+                            </label>
+    
+                            <input id="author" type="text"
+                                class="form-border w-full bg-gray-100 @error('author') border-red-500 @enderror" name="author"
+                                value="{{ old('author') }}" required autocomplete="author" placeholder="Name or alias">
+    
+                            @error('author')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
                     </div>
                     
-                    <div class="flex flex-wrap">
+                    
+                    <div class="flex flex-wrap mb-4">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Image (optional)') }}
                         </label>
 
                         <input id="image" type="file"
-                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ old('image') }}" autocomplete="image">
+                            class="form-border w-full h-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
+                            value="{{ old('image') }}">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -95,7 +98,7 @@
                         {{ __('Body') }}
                     </label>
 
-                    <textarea id="body" type="text"
+                    <textarea id="body" type="text" rows="4" cols="50"
                         class="form-border w-full bg-gray-100 @error('body') border-red-500 @enderror" name="body"
                         required autocomplete="body"></textarea>
                     @error('body')

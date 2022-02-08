@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ class Article extends Model
     
     protected $primaryKey = 'id';
     
-    protected $fillable = ['date', 'title', 'author', 'body'];
+    protected $fillable = ['date', 'title', 'author', 'body', 'image'];
 
     public function user()
     {

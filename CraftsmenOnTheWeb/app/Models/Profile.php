@@ -16,7 +16,7 @@ class Profile extends Model
     
     protected $primaryKey = 'id';
     
-    protected $fillable = ['alias', 'craft', 'motivation'];
+    protected $fillable = ['alias', 'craft', 'motivation', 'image'];
 
     public function user()
     {

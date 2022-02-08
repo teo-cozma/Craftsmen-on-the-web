@@ -26,8 +26,17 @@ class ProfilesController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'mimes:jpg,png,jpeg,webp',
+            'alias' => 'required|max:50',
+            'craft' => 'required|max:50',
+            'motivation' => 'required'
+        ]);
+
+        $imagePath = (request('image')->store('/', 'public'));
+
         $profile = [
-            'image' => $request->input('image'),
+            'image' => $imagePath,
             'alias' => $request->input('alias'),
             'craft' => $request->input('craft'),
             'motivation' => $request->input('motivation'),
@@ -40,38 +49,19 @@ class ProfilesController extends Controller
 
     public function update(Request $request, $id)
     {
+        if(request('image')) {
+            $imagePath = (request('image')->store('/articles', 'public'));
+        }
+
         $profile = Auth::user()->profile->update([
-            'image' => $request->input('image'),
+            'image' => $imagePath,
             'alias' => $request->input('alias'),
             'craft' => $request->input('craft'),
             'motivation' => $request->input('motivation'),
         ]);
 
+        
+        // dd($profile);
         return redirect('/profile')->with('status','Profile Updated Successfully');
     }
 }
-    // $profile = Profile::find($id);
-    // return view('profiles.edit', compact('profile'));
-
-    // public function update(Request $request, $id)
-    // {
-    //     $profile = Profile::where('id', $id)->update([
-    //         // 'image' => $request->input('image'),
-    //         'alias' => $request->input('alias'),
-    //         'craft' => $request->input('craft'),
-    //         'motivation' => $request->input('motivation'),
-    //     ]);
-
-    //     return redirect('/profile');
-    // }
-
-    // $profile->Alias = Auth::user()->profile->Alias;
-    // $profile->Alias = Auth::user()->profile->Alias;
-    // return redirect('/profile')->with('status','Profile Updated Successfully');
-    // dd($profile);
-
-    // $profile->alias = $request->input('alias');
-    // $profile->craft = $request->input('craft');
-    // $profile->motivation = $request->input('motivation');
-    // $profile->update();
-    // return redirect()->back()->with('status','Profile Updated Successfully');

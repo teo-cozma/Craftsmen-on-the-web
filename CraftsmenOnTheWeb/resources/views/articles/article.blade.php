@@ -9,11 +9,14 @@
             </div>
         @endif
 
+        @foreach ($article as $info)
+
         <div class="h-3/5">
-            <img src="{{ '/img/crafting.jpg' }}" alt="article_img" class="flex flex-col justify-center items-center h-3/5">
+            @if ($info->image)
+                <img src="/storage/{{ $info->image }}" alt="article_img" class="flex flex-col justify-center items-center">
+            @endif
         </div>
 
-        @foreach ($article as $info)
             <div class="description">
                 <div class="flex justify-between items-center">
                     <div>
@@ -21,9 +24,12 @@
                         <h4 class="leading-normal font-semibold">{{ $info->title }}</h4>
                         <p class="leading-normal italic">Written by {{ $info->author }}</p>
                     </div>
-                    @auth
-                        <a href="/articles/{article}/edit" class=" hover:underline">Edit</a>
-                    @endauth
+                    @if($info->author == Auth::user()->profile->Alias || $info->author == Auth::user()->name)
+                        <a href="/article/{{ $info->title }}/edit" class=" hover:underline">Edit</a>
+                    @endif
+                    {{-- @if($info->author == Auth::user()->profile->Alias || $info->author == Auth::user()->name)
+                        <a href="/article/{{ $info->title }}/edit" class=" hover:underline">Edit</a>
+                    @endif --}}
                 </div>
                 <br>
                 <p class="leading-normal">{{ $info->body }}</p>

@@ -13,22 +13,41 @@
       {{-- <a href="/profile/{{ Auth::user()->id }}/{{ route('profiles.edit') }}" class=" hover:underline">Edit</a> --}}
       <a href="/profile/{{ Auth::user()->id }}/edit" class=" hover:underline">Edit</a>
     </div>
-    
-      <h3><strong>Alias</strong></h3>
-        <p class="warm-red leading-higher"> {{ Auth::user()->profile->Alias ?? 'N/A' }} </p>
+    <div class="container md:responsive mb-10 items-center">
+      <div class="mb-10">
+
+        @if(Auth::user()->profile->image)
+          <img src="/storage/{{ Auth::user()->profile->image }}" alt="profile_image" class="profile_image">
+        @else
+          <img src="{{ '/img/Default_profile_image.png' }}" class="profile_image">
+        @endif
+
+      </div>
+      <div>
+        <h3 class="leading-normal font-semibold">Alias</h3>
+          <p class="warm-red leading-higher"> {{ Auth::user()->profile->Alias ?? 'N/A' }} </p>
         <br><br>
-      <h3><strong>What's your craft ?</strong></h3>
-        <p class="warm-red leading-higher">{{ Auth::user()->profile->Craft ?? 'N/A' }}</p>
-        <br><br>
-      <h3><strong>What motivates your to create ?</strong></h3>
-        <p class="warm-red leading-higher">{{ Auth::user()->profile->Motivation ?? 'N/A' }}</p>
-        <br>
+        <h3 class="leading-normal font-semibold">What's your craft ?</h3>
+          <p class="warm-red leading-higher">{{ Auth::user()->profile->Craft ?? 'N/A' }}</p>
+          <br><br>
+          <h3 class="leading-normal font-semibold">What motivates you to create ?</h3>
+          <p class="warm-red leading-higher">{{ Auth::user()->profile->Motivation ?? 'N/A' }}</p>
+          <br>
+      </div>
+    </div>
 
     <h1 class="custom-h1">Basic information</h1>
-      <h3><strong>Name</strong></h3>
+    <div class="container md:responsive mb-10 items-center">
+      <div>
+        <h3 class="leading-normal font-semibold">Name</h3>
         <p class="warm-red leading-higher"> {{ Auth::user()->name ?? 'N/A' }} </p>
-        <br><br>
-      <h3><strong>Email</strong></h3>
+      </div>
+  
+      <div>
+        <h3 class="leading-normal font-semibold">Email</h3>
         <p class="warm-red leading-higher">{{ Auth::user()->email ?? 'N/A' }}</p>
+      </div>
+      
+    </div>
   </main>
 @endsection

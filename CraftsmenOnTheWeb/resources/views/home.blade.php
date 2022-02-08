@@ -30,7 +30,9 @@
             @foreach ($articles as $article)
             <a href="/article/{{ $article->title }}">
                 <div class="card">
-                    <img src="{{ '/img/crafting.jpg' }}" alt="article_img" class="flex flex-col justify-center items-center">
+                    @if ($article->image)
+                    <img src="/storage/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center">
+                    @endif
                         <div class="description">
                             <p class="leading-normal warm-red">{{ $article->date }}</p>
                             <h4 class="leading-normal font-semibold">{{ $article->title }}</h4>

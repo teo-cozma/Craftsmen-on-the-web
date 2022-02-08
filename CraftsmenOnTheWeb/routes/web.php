@@ -17,7 +17,9 @@ use App\Http\Controllers\ProfilesController;
 */
 
 // Guest views //
-Route::get('/', function() {return view('welcome');})->name('welcome');
+Route::get('/', function() {
+    return view('welcome');
+})->name('welcome');
 Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
 
 Route::group(['middleware'=>'prevent_back_history'], function() {
@@ -25,13 +27,16 @@ Route::group(['middleware'=>'prevent_back_history'], function() {
     Auth::routes();
     
     // Logged in - main page rendered with all articles + search bar
+    // Route::get('/', function() {return redirect('/home');});
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
     // Article routes
     Route::get('/write', [\App\Http\Controllers\ArticlesController::class, 'create'])->name('articles.write.create');
     Route::post('/write', [\App\Http\Controllers\ArticlesController::class, 'store'])->name('articles.write.store');
 
-    Route::get('/article/{article}', [\App\Http\Controllers\ArticlesController::class, 'show'])->name('articles.show');
+    Route::get('/article/{article}', [\App\Http\Controllers\ArticlesController::class, 'show'])->name('articles.article.show');
+    Route::get('/article/{article}/edit', [\App\Http\Controllers\ArticlesController::class, 'edit'])->name('articles.article.edit');
+    Route::patch('/article/{article}/edit', [\App\Http\Controllers\ArticlesController::class, 'update'])->name('articles.article.update');
     
     // Profile routes
     Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profiles.profile');

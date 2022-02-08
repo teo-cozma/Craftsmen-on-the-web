@@ -219,15 +219,15 @@ Another summary outlining the major steps of this project, which pages to make, 
 6. Main page (logged in) :
     - [x] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
     - [ ] Latest news, stories, posts...
-        - [ ] **ARTICLE database** = Picture, data, title, author, content
+        - [x] **ARTICLE database** = Picture, data, title, author, ~~content~~
             - ***GET ; /main ; action: main ; articles.main***
         - [ ] Search bar = keyword/filter
             - [ ] If it's not empty, GET all posts matching the keyword ; else, GET all articles.
             - ***GET ; /main/{article}; action: show ; articles.show***
-        - [ ] 1 card per article (DYNAMIC)
+        - [x] 1 card per article (DYNAMIC)
 
 7. Single post by another user (DYNAMIC) :
-    - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
+    - [x] Once clicked, GET by :id and display all contents (+ picture, if applicable)
     - [ ] Comment section
         - [ ] **COMMENT database** = Date, alias, content (how much of this can be automatically generated ?)
         - [ ] GET all comments -> ***GET ; /main/{article}/comments ; show ; comments.show***
@@ -347,13 +347,26 @@ Evening :
 
 More work on the profile : finally managed to get dynamic data into the views earlier today. Resolved an issue with MySQL shutting down unexpectedly in XAMPP. Found a solution and copied it for safe keeping!
 
-
 #### Day fourteen (03/02)
 Spent the day trying to get the Profile controllers up and running, however, ran into numerous problems again with XAMPP disconnecting from MySQL. I strongly suspect this has to do with the computer crash from the previous day after my first crappy (and somehow corrupted) attempt at installing Heroku. For the time being, I just did as much as I could to write the update function for the profile.
 
 #### Day fifteen (05/02)
 Will continue working on the profile routes (same for this weekend, if nothing still works).
 Update functionalities now working for the profile (alias, craft, motivation). Moved on to rendering the articles view on the home page, and selecting individual articles with their own view ; had some trouble with querying the db, but I figured out that all I had to do was change the 'where' condition (from 'id' to 'title').
+
+#### Day sixteen (07/02)
+Will continue with the profile page, adding an image and displaying it. So far, I have a "default" that will be available if they haven't selected their own image (which isn't mandatory anyways). It won't be the same for the articles however ; these can just remain text-only if the user wishes.
+Today's focus will be finishing work on selecting, storing and displaying the images, first for the profile page, then for the articles (if applicable). In the latter, I will have to add an edit view along with a policy that only allows the author to access that edit page, and include the update functionalities, as well as the delete function.
+
+Afterwards, moving on to writing CRUD for the comments, and the project will be complete.
+
+Afternoon/evening : 
+- Some issues to fix with the image storage and saving it, even when the user changes their profile without changing the image.
+- A lot of mix up with routes, how to name them, and making the articles appear correctly. 
+- Also, migrated a new table for the articles that include the id of the authenticated user who wrote them, in order for a more consistent code.
+
+#### Day seventeen (08/02)
+Starting the day with yet another mysql error shutdown. I redid the same procedure, but I think I'll have to switch to WAMP if that's better. For now, I'll complete and deploy this project using XAMPP just in case, and I'll test it with WAMP.
 
 
 ---
@@ -408,3 +421,5 @@ Update functionalities now working for the profile (alias, craft, motivation). M
     - https://stackoverflow.com/questions/18022809/how-to-solve-error-mysql-shutdown-unexpectedly
     - https://kinsta.com/knowledgebase/xampp-mysql-shutdown-unexpectedly/
     - https://mariadb.com/kb/en/innodb-recovery-modes/
+
+    - https://stackoverflow.com/questions/47170217/refresh-laravel-migration-for-specific-table

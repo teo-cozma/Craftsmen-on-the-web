@@ -136,7 +136,7 @@
 
                         <input id="image" type="file"
                             class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ old('image') }}">
+                            value="{{ Auth::user()->profile->image ?? 'N/A' ?? old('image') }}">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
