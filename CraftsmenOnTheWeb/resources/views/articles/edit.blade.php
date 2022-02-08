@@ -14,7 +14,7 @@
         <div class="flex justify-between items-center">
             <h1 class="custom-h1">Edit, update or remove your story</h1>
             {{-- <a href="{{ route('articles.article.show') }}" class=" hover:underline">Cancel</a> --}}
-            <a href="" class=" hover:underline">Delete</a>
+            
             <a href="/article/{{ $article->title }}" class=" hover:underline">Cancel</a>
             {{-- <a href="{{ route('articles.show', 'show') }}" class=" hover:underline">Cancel</a> --}}
         </div>
@@ -84,7 +84,7 @@
                     
                     <div class="flex flex-wrap">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Image (optional)') }}
+                            {{ __('Image') }}
                         </label>
 
                         <input id="image" type="file"
@@ -114,11 +114,13 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-wrap pb-8 warm-red">
+                <div class="flex flex-wrap pb-8 warm-red justify-between items-center">
                     <button type="submit"
                     class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                     {{ __('Confirm') }}
                     </button>
+
+                    <a href="" class=" hover:underline">Delete</a>
                 </div>
             </form>
         </section>

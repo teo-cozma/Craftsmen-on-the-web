@@ -78,12 +78,12 @@
                     
                     <div class="flex flex-wrap mb-4">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Image (optional)') }}
+                            {{ __('Image') }}
                         </label>
 
                         <input id="image" type="file"
                             class="form-border w-full h-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ old('image') }}">
+                            value="{{ old('image') }}" required>
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">

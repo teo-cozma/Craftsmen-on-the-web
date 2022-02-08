@@ -27,24 +27,25 @@
         <h1 class="custom-h1">Latest news, stories, posts...</h1>
         <div class="container md:responsive mb-10">
 
-            @foreach ($articles as $article)
-            <a href="/article/{{ $article->title }}">
-                <div class="card">
-                    @if ($article->image)
-                    <img src="/storage/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center">
-                    @endif
-                        <div class="description">
-                            <p class="leading-normal warm-red">{{ $article->date }}</p>
-                            <h4 class="leading-normal font-semibold">{{ $article->title }}</h4>
-                            <p class="leading-normal italic">{{ $article->author }}</p>
-                            <br>
-                            <p class="leading-normal">{{ $article->body }}</p>
-                        </div>
-                </div>
-            </a>
-            @endforeach
+        {{-- Displaying all articles, including those posted by other users --}}
+        @foreach ($allArticles as $other)
+        <a href="/article/{{ $other->title }}">
+            <div class="card">
+                @if ($other->image)
+                <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                {{-- <img src="/storage/uploads/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center"> --}}
+                @endif
+                    <div class="description">
+                        <p class="leading-normal warm-red">{{ $other->date }}</p>
+                        <h4 class="leading-normal font-semibold">{{ $other->title }}</h4>
+                        <p class="leading-normal italic">{{ $other->author }}</p>
+                        <br>
+                        <p class="leading-normal">Read more ...</p>
+                    </div>
+            </div>
+        </a>
+        @endforeach
         </div>
-
     </div>
 </main>
 @endsection

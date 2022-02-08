@@ -17,9 +17,10 @@ use App\Http\Controllers\ProfilesController;
 */
 
 // Guest views //
-Route::get('/', function() {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function() {return view('welcome');})->name('welcome');
+
+Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
+
 Route::post('/', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contact.store');
 
 Route::group(['middleware'=>'prevent_back_history'], function() {

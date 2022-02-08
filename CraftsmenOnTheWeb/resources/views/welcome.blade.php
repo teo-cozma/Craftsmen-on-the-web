@@ -44,8 +44,29 @@
     <div class="stories" id="news">
         <div class="body-width flex flex-col sm:responsive-width">
             <h1 class="custom-h1">Latest news</h1>
-            <div class="container md:responsive mb-10">
-                <div class="card">
+                <div class="container md:responsive mb-10">
+                    @if($allArticles !== null)
+                    @foreach ($allArticles as $other)
+                        <div class="card">
+                            @if ($other->image)
+                            <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                            @endif
+                                <div class="description">
+                                    <p class="leading-normal warm-red">{{ $other->date }}</p>
+                                    <h4 class="leading-normal font-semibold">{{ $other->title }}</h4>
+                                    <p class="leading-normal italic">{{ $other->author }}</p>
+                                    <br>
+                                    <p class="leading-normal warm-red font-semibold">Sign in to read more...</p>
+                                </div>
+                        </div>
+                    @endforeach
+                @endif
+
+                @if($allArticles == null)
+                    <p class="leading-normal warm-red font-semibold">No news yet...</p>
+                @endif
+
+                {{-- <div class="card">
                     <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
                     <div class="description">
                         <p>Date</p>
@@ -54,17 +75,7 @@
                         <br>
                         <p class="leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
-                    <div class="description">
-                        <p>Date</p>
-                        <h4>Title</h4>
-                        <p>Author</p>
-                        <br>
-                        <p class="leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

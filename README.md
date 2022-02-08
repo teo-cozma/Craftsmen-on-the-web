@@ -7,11 +7,11 @@
 - ~~Trello ? (organisation)~~
 
 - Backend :
-    - Laravel
+    - Laravel 8
     - ~~Node JS~~
     - ~~Postman (testing APIs)~~
     - ~~MongoDB Atlas(creating the database ? see if it's possible to create a remote db, or thanks to Heroku)~~
-    - MySQL (database)
+    - MySQL/MariaDB (database) through XAMPP (that also includes PHP)
 - Frontend :
     - ~~React ? (**TBD**)~~
     - ~~Angular ? (**TBD**)~~
@@ -181,10 +181,10 @@ Another summary outlining the major steps of this project, which pages to make, 
     - [x] Hero section with welcome message
         - [x] Register link
         - [x] Login link
-    - [ ] Latest news (DYNAMIC) = 2 recent posts
-        - [ ] **POSTS database** = Picture, date, title, author, content
+    - [x] Latest news (DYNAMIC) = 2 recent posts
+        - [x] **POSTS database** = Picture, date, title, author, ~~content~~
             - Try the Mongodb integration tutorial to test the post API for this page with some mock data, using Postman ! The good news is that they're very compatible when it comes to integration !
-        - [ ] Get posts by date (most recent), limit = 2
+        - [x] Get posts by date (most recent), limit = 2
             - ***GET ; /posts ; action: index ; route : posts.index***
     - [x] About section (STATIC) containing mission statement
     - [x] Contact form (STATIC)
@@ -210,21 +210,22 @@ Another summary outlining the major steps of this project, which pages to make, 
             - [x] Find out what are the functionalities behind this, as well as how to implement with Laravel.
 
 5. Create profile (1st logged in) :
-    - [ ] Profile form
-        - [ ] **PROFILE database** = Alias, craft, motivation
+    - [x] Profile form
+        - [x] **PROFILE database** = Alias, craft, motivation
             - ***GET ; /profile ; action: create ; profile.create***
             - ***POST ; /profile ; action: store ; profile.store***
-        - [ ] Skip for now = direct towards main page
+        - [x] Skip for now = direct towards main page
 
 6. Main page (logged in) :
     - [x] New header = Logo + Navbar (Main, write, profile, Logout - STATIC)
-    - [ ] Latest news, stories, posts...
+    - [x] Latest news, stories, posts...
         - [x] **ARTICLE database** = Picture, data, title, author, ~~content~~
             - ***GET ; /main ; action: main ; articles.main***
-        - [ ] Search bar = keyword/filter
-            - [ ] If it's not empty, GET all posts matching the keyword ; else, GET all articles.
-            - ***GET ; /main/{article}; action: show ; articles.show***
         - [x] 1 card per article (DYNAMIC)
+    - [ ] Search bar = keyword/filter
+        - [ ] If it's not empty, GET all posts matching the keyword ; else, GET all articles.
+        - ***GET ; /main/{article}; action: show ; articles.show***
+        
 
 7. Single post by another user (DYNAMIC) :
     - [x] Once clicked, GET by :id and display all contents (+ picture, if applicable)
@@ -240,30 +241,30 @@ Another summary outlining the major steps of this project, which pages to make, 
             - ***DELETE ; /main/{article}/comments/{comment} ; destroy; comments.destroy ***
 
 8. Single article made by user (DYNAMIC) :
-    - [ ] Once clicked, GET by :id and display all contents (+ picture, if applicable)
-        - [ ] Same edit functions as for the comments.
+    - [x] Once clicked, GET by :id and display all contents (+ picture, if applicable)
+        - [x] Same edit functions as for the comments.
             - ***GET ; /main/{article} ; show ; article.show***
 
 9. Create a new article :
-    - [ ] Create form (see article database)
-        - [ ] POST -> saved to db, then redirected to main page to see it displayed (GET from all users)
+    - [x] Create form (see article database)
+        - [x] POST -> saved to db, then redirected to main page to see it displayed (GET from all users)
             - ***GET ; /main/create ; create ; article.create***
 
 10. Edit/delete Article :
-    - [ ] Edit form (see article database) -> GET by :id
+    - [x] Edit form (see article database) -> GET by :id
         - ***GET ; /main/{article} ; show ; article.show***
         - ***GET ; /main/{article}/edit ; edit ; article.edit***
         - ***PATCH ; /main/{article} ; update ; article.update***
-    - [ ] Cancel button (back to article)
+    - [x] Cancel button (back to article)
     - [ ] Delete button -> GET by :id then DELETE
         - ***DELETE ; /main/{article} ; destroy ; article.destroy***
 
 11. Profile page (DYNAMIC) :
-    - [ ] Profile information + picture (again, see how this is done and if it's doable for me)
-        - [ ] GET by :id ? or by name ? It must be associated to a specific user, and therefore must be included in the user info
+    - [x] Profile information + picture (again, see how this is done and if it's doable for me)
+        - [x] GET by :id ? or by name ? It must be associated to a specific user, and therefore must be included in the user info
             - ***GET ; /profile ; index ; profile.index***
-    - [ ] Basic user info
-        - [ ] Same process as with the profile (excluding the profile information -> can be done in a table format ?)
+    - [x] Basic user info
+        - [x] Same process as with the profile (excluding the profile information -> can be done in a table format ?)
 
 12. Edit profile / user info (STATIC) :
     - [ ] Edit forms for each
@@ -367,6 +368,8 @@ Afternoon/evening :
 
 #### Day seventeen (08/02)
 Starting the day with yet another mysql error shutdown. I redid the same procedure, but I think I'll have to switch to WAMP if that's better. For now, I'll complete and deploy this project using XAMPP just in case, and I'll test it with WAMP.
+
+I think I finally managed to write good code for updating articles. I must ABSOLUTELY resist the urge to change any of it now. If it works, don't fix it ! Also, I added a controller for the welcome page to dynamically display the latest articles written. Hopefully it'll work. Then, I push for Heroku deployment and see how it goes tomorrow.
 
 
 ---

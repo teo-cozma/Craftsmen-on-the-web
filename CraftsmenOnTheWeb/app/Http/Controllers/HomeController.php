@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,8 +24,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = DB::table('articles')->latest()->get();
-        return view('home', compact('articles'));
+        $allArticles = DB::table('articles')->latest()->get();
+        // $articles = Auth::user()->articles()->orderBy('created_At', 'DESC')->get();
+        // dd($articles, $allArticles);
+        return view('home', compact('allArticles'));
+        // return view('home', compact('articles', 'allArticles'));
+
+        
         // return view('home')->with($articles);
     }
 }

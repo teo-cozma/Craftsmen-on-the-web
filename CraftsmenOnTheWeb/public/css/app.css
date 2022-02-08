@@ -91,9 +91,6 @@ footer > .body-width {
   margin: 0em auto;
 }
 
-.article_img_height {
-  height: 50%;
-}
 
 @media (max-width: 768px) {
   .sm\:responsive-width {
@@ -158,6 +155,21 @@ footer > .body-width {
   border-radius: 50%;
   width: 18em;
   height: 18em;
+}
+
+.article_image {
+  object-fit: cover;
+  width : 100em;
+  height: 30em;
+}
+.article_image_home {
+  object-fit: cover;
+  width : 100%;
+  height: 25em;
+}
+
+.object-cover {
+  object-fit: cover;
 }
 
 /*
@@ -1025,6 +1037,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .px-5 {

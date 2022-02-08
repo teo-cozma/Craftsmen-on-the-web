@@ -21,60 +21,81 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $article = $request->validate([
             'date' => 'required',
-            'title' => 'required|max:50',
-            'author' => 'required|max:50',
-            'image' => 'mimes:jpg,png,jpeg,webp|nullable',
+            'title' => 'required',
+            'author' => 'required',
+            'image' => 'mimes:jpg,png,jpeg,webp',
             'body' => 'required'
         ]); 
 
-        if(request('image')) {
-            $imagePath = (request('image')->store('/articles', 'public'));
+        if(request('image')){
+            $newImageName = time() . '-' . $request->title . '.' .$request->image->extension();
+            $request->image->move(public_path('img'), $newImageName);
+
+            $article = [
+                'date' => $request->input('date'),
+                'title' => $request->input('title'),
+                'author' => $request->input('author'),
+                'image' => $newImageName,
+                'body' => $request->input('body')
+            ];
         }
 
-        $article = [
-            'date' => $request->input('date'),
-            'title' => $request->input('title'),
-            'author' => $request->input('author'),
-            'image' => $imagePath,
-            'body' => $request->input('body')
-        ];
+        // dd($article);
 
         auth()->user()->articles()->create($article);
-        // dd($article);
+        
         return redirect('/home')->with('status','Article Created Successfully');
     }
 
     public function show(Request $request, $title)
     {   
-        $article = DB::table('articles')->where('title', $title)->get();
+        $article = DB::table('articles')->where('title', $title)->get()->first();
+        // $article = Auth::user()->articles()->where('title', $title)->get()->first();
+        // dd($article);
+        // dd($otherArticle);
+        // dd($article, $otherArticle->author);
         return view('articles.article', compact('article'));
     }
 
     public function edit($title)
     {
         $article = Auth::user()->articles()->where('title', $title)->get()->first();
+        // dd($article);
         return view('articles.edit', compact('article'));
     }  
     
     public function update(Request $request, $title)
     {
-        $article = Auth::user()->articles()->where('title', $title)->get()->first();
-        
-        $article->update([
-            'date' => $request->input('date'),
-            'title' => $request->input('title'),
-            'author' => $request->input('author'),
-            'image' => '',
-            'body' => $request->input('body')
-        ]);
+        // $article = Auth::user()->articles()->where('title', $title)->get()->first();
+
+        $article = $request->validate([
+            'date' => 'required',
+            'title' => 'required',
+            'author' => 'required',
+            'image' => 'mimes:jpg,png,jpeg,webp',
+            'body' => 'required'
+        ]); 
+
         if(request('image')) {
-            $imagePath = (request('image')->store('/articles', 'public'));
+            $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
+            $request->image->move(public_path('img'), $newImageName);
+
+            $article = [
+                'date' => $request->input('date'),
+                'title' => $request->input('title'),
+                'author' => $request->input('author'),
+                'image' => $newImageName,
+                'body' => $request->input('body')
+            ];
         }
+        
+        $article = Auth::user()->articles()->where('title', $title)->get()->first()->update($article);
         // dd($article);
         return redirect('/home');
     }
+}
 
     // public function update(Request $request)
     // {
@@ -88,7 +109,7 @@ class ArticlesController extends Controller
     //     // dd($article);
     //     return redirect('/home')->with('status','Article Created Successfully');
     // }
-}
+
 
 // $data = $request->validate([
 //     'date' => 'required|date',

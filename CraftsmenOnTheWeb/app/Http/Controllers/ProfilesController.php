@@ -26,17 +26,20 @@ class ProfilesController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $profile = $request->validate([
             'image' => 'mimes:jpg,png,jpeg,webp',
             'alias' => 'required|max:50',
             'craft' => 'required|max:50',
             'motivation' => 'required'
         ]);
 
-        $imagePath = (request('image')->store('/', 'public'));
+        if(request('image')) {
+            $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
+            $request->image->move(public_path('img'), $newImageName);
+        }
 
         $profile = [
-            'image' => $imagePath,
+            'image' => $newImageName,
             'alias' => $request->input('alias'),
             'craft' => $request->input('craft'),
             'motivation' => $request->input('motivation'),
@@ -47,21 +50,29 @@ class ProfilesController extends Controller
         return redirect('/profile')->with('status','Profile Created Successfully');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $profile)
     {
-        if(request('image')) {
-            $imagePath = (request('image')->store('/articles', 'public'));
-        }
-
-        $profile = Auth::user()->profile->update([
-            'image' => $imagePath,
-            'alias' => $request->input('alias'),
-            'craft' => $request->input('craft'),
-            'motivation' => $request->input('motivation'),
+        $profile = $request->validate([
+            'image' => 'mimes:jpg,png,jpeg,webp',
+            'alias' => 'required',
+            'craft' => 'required',
+            'motivation' => 'required'
         ]);
 
-        
+        if(request('image')) {
+            $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
+            $request->image->move(public_path('img'), $newImageName);
+
+            $profile = [
+                'image' => $newImageName,
+                'alias' => $request->input('alias'),
+                'craft' => $request->input('craft'),
+                'motivation' => $request->input('motivation'),
+            ];
+        }
+
         // dd($profile);
+        auth()->user()->profile()->update($profile);
         return redirect('/profile')->with('status','Profile Updated Successfully');
     }
 }
