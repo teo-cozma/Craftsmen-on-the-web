@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->bigInteger('user_id');
             $table->date('date')->nullable(false);
             $table->string('author', 50)->nullable(false);
-            $table->mediumText('Body')->nullable(false);
+            $table->mediumText('body')->nullable(false);
             $table->timestamps();
 
             $table->index('user_id');
