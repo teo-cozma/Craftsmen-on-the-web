@@ -28,22 +28,29 @@ class ProfilesController extends Controller
     {
         $profile = $request->validate([
             'image' => 'mimes:jpg,png,jpeg,webp',
-            'alias' => 'required|max:50',
-            'craft' => 'required|max:50',
+            'alias' => 'required',
+            'craft' => 'required',
             'motivation' => 'required'
         ]);
 
         if(request('image')) {
             $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
             $request->image->move(public_path('img'), $newImageName);
+
+            $profile = [
+                'image' => $newImageName,
+                'alias' => $request->input('alias'),
+                'craft' => $request->input('craft'),
+                'motivation' => $request->input('motivation'),
+            ];
         }
 
-        $profile = [
-            'image' => $newImageName,
-            'alias' => $request->input('alias'),
-            'craft' => $request->input('craft'),
-            'motivation' => $request->input('motivation'),
-        ];
+        // $profile = [
+        //     'image' => $newImageName,
+        //     'alias' => $request->input('alias'),
+        //     'craft' => $request->input('craft'),
+        //     'motivation' => $request->input('motivation'),
+        // ];
 
         auth()->user()->profile()->create($profile);
         // dd($profile);

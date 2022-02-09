@@ -107,7 +107,7 @@
             </section>
         @endif
 
-        
+        @if (Auth::user()->profile !== null)
         <div class="flex justify-between items-center">
             <h1 class="custom-h1">Edit your profile</h1>
             <a href="{{ route('profiles.profile') }}" class=" hover:underline">Cancel</a>
@@ -202,6 +202,7 @@
                 </div>
             </form>
         </section>
+        @endif
        
         {{-- <h1 class="custom-h1">Edit your information</h1>
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">

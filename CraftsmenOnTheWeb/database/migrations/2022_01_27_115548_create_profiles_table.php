@@ -14,10 +14,10 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->id()->nullable();
+            $table->id();
             $table->bigInteger('user_id');
-            $table->string('Alias', 50)->nullable(false);
-            $table->string('Craft', 100)->nullable(false);
+            $table->string('Alias')->nullable(false);
+            $table->string('Craft')->nullable(false);
             $table->mediumText('Motivation')->nullable(false);
             $table->binary('image')->nullable();
             $table->timestamps();

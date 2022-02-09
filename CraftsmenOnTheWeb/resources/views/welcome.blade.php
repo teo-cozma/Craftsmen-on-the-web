@@ -45,6 +45,9 @@
         <div class="body-width flex flex-col sm:responsive-width">
             <h1 class="custom-h1">Latest news</h1>
                 <div class="container md:responsive mb-10">
+                    @if($allArticles == [])
+                    <p class="leading-normal warm-red font-semibold">No news yet...</p>
+                    @endif
                     @if($allArticles !== null)
                     @foreach ($allArticles as $other)
                         <div class="card">
@@ -60,10 +63,6 @@
                                 </div>
                         </div>
                     @endforeach
-                @endif
-
-                @if($allArticles == null)
-                    <p class="leading-normal warm-red font-semibold">No news yet...</p>
                 @endif
 
                 {{-- <div class="card">
