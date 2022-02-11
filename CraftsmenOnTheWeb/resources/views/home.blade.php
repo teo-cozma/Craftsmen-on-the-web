@@ -32,6 +32,7 @@
         <a href="/article/{{ $other->title }}">
             <div class="card">
                 @if ($other->image)
+                {{-- <img src="/storage/production/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                 <img src="{{ 'storage/production/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
                 {{-- <img src="/img/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                 {{-- <img src="/storage/uploads/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center"> --}}

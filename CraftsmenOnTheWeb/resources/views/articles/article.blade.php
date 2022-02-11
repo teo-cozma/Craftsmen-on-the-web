@@ -14,6 +14,7 @@
                 {{-- <p>{{$article->image}}</p> --}}
                 {{-- <img src="/img/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
                 <img src="{{ asset ('storage/production/' . $article->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image">
+                {{-- <img src="/storage/production/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
             @endif
         </div>
         <div class="description">
@@ -24,6 +25,7 @@
                     <p class="leading-normal italic">Written by {{ $article->author }}</p>
                 </div>
                 @if($article->author == Auth::user()->profile->alias || $article->author == Auth::user()->name)
+                {{-- @if($article->author == Auth::user()) --}}
                     <a href="/article/{{ $article->title }}/edit" class="hover:warm-red">Edit</a>
                 @endif
             </div>
