@@ -25,9 +25,9 @@
                 @csrf
 
                 <div class="container md:responsive">
-                    <div>
+                    {{-- <div> --}}
                         <div class="flex flex-wrap mb-4 md:mb-6">
-                            <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                                 {{ __('Date') }}
                             </label>
     
@@ -43,7 +43,7 @@
                         </div>
     
                         <div class="flex flex-wrap mb-4 md:mb-6">
-                            <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                                 {{ __('Title') }}
                             </label>
     
@@ -59,7 +59,7 @@
                         </div>
     
                         <div class="flex flex-wrap mb-4 md:mb-6">
-                            <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                                 {{ __('Author') }}
                             </label>
     
@@ -73,18 +73,29 @@
                             </p>
                             @enderror
                         </div>
-                    </div>
+                    {{-- </div> --}}
                     
                     
                     <div class="flex flex-wrap mb-4">
-                        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                             {{ __('Image') }}
                         </label>
 
-                        <input id="image" type="file"
-                            class="form-border w-full h-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ old('image') }}" required>
+                        {{-- <img id="article_img" alt="article_img">
+                        <script type="text/javascript">
+                            var loadFile = function(event) {
+                                var article_img = document.getElementById('image');
+                                article_img.src = URL.createObjectURL(event.target.files[0]);
+                                article_img.onload = function() {
+                                    URL.revokeObjectURL(article_img.src) // free memory
+                                }
+                            };
+                        </script> --}}
 
+                        <input id="image" type="file"
+                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
+                            value="{{ old('image') }}" required onChange="displayImage(this)">
+                        
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
@@ -94,7 +105,7 @@
                 </div>
 
                 <div class="flex flex-wrap">
-                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                         {{ __('Body') }}
                     </label>
 
@@ -110,7 +121,7 @@
 
                 <div class="flex flex-wrap pb-8 warm-red">
                     <button type="submit"
-                    class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                    class="select-none font-bold whitespace-no-wrap py-4 px-6 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4 font-['aspergit']">
                     {{ __('Publish') }}
                     </button>
                 </div>

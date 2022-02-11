@@ -372,7 +372,7 @@ Starting the day with yet another mysql error shutdown. I redid the same procedu
 I think I finally managed to write good code for updating articles. I must ABSOLUTELY resist the urge to change any of it now. If it works, don't fix it ! Also, I added a controller for the welcome page to dynamically display the latest articles written. Hopefully it'll work. Then, I push for Heroku deployment and see how it goes tomorrow.
 
 
-#### Day eighteen (08/02)
+#### Day eighteen (09/02)
 Managed to deploy with pgsql database. Most elements can be displayed : the title font is still not downloaded properly (still no idea why!!!), I can register a new user and see the views. However, unable to create a profile or modify an article, because apparently the alias in the SQL db is somehow not recognised. Earlier today, I had a problem where I could not deploy properly after running the migration command on heroku, since I (stupidly) put the table id as nullable. I went back and corrected that, also on the other tables where I made the same mistake, refreshed those specific migrations and created new users + profiles again (and fixed some other issues in the views code in the meantime). The deployment worked, but when creating a new article, it stated that the user_id was not found, since it was not a fillable input. To correct that, I reran the migration for that specific table that I added onto the articles table. Creating a new article was possible. However, the image cannot be displayed ; that might still be normal since the images are redirected to the img folder in the public folder, and not in storage where I created a symbolic link so that it could be made avaiable to the public. I might go ahead and test that issue first, maybe fix it. If that goes well, I'll push the changes to Heroku and I'll refresh the migrations to see if that makes any difference.
 
 Tasks :
@@ -380,6 +380,15 @@ Tasks :
 - Change the image path -> where is the image saved ? on the server ? cloud storage ?
 - refine the articles functionality (delete)
 - create a searchbar
+
+#### Day nineteen (10/02)
+Spent the whole day trying to deploy properly on Heroku. The problems were mostly due to some of my coding errors (the SQL columns could not be identified). Those were resolved. However, lingering issue with displaying the dynamic images on Heroku, due mostly to the ephemeral nature of its db storage. There might be a workaround there but it'll still take me some time to research and implement. Thus, I haven't been able to create a search bar or make the recommended style changes, but these can be done later.
+Definitely in the future, I will make to sure not to mess with the naming in the migrations tables (keep everything lowercase, don't make the id nullable, and don't set limits, like max characters, through that).
+
+Also I got the right font for the logo !!!
+
+#### Day twenty (11/02)
+Similar problem with the contact form in the deployed version. I think I managed to fix that, but now the question is how I'll be able to see if the message was at all sent. How do I see the content of the deployed database ?
 
 ---
 
@@ -439,3 +448,9 @@ Tasks :
     - https://www.youtube.com/watch?v=zf0gT2J6xik
     - https://www.youtube.com/watch?v=639Pe0PpVLQ
     - https://www.youtube.com/watch?v=zf0gT2J6xik
+
+    - https://stackoverflow.com/questions/45552264/images-in-app-public-laravel-not-show-in-heroku-app
+
+- Stock photos:
+    - Photo by Anamul Rezwan from Pexels (Welcome page)
+    - Photo by Ivan Samkov from Pexels (Welcome page)

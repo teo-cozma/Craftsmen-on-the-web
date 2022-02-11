@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- <main class="sm:container sm:mx-auto sm:mt-10"> --}}
-<main class="body-width">
+<main class="body-width flex flex-col sm:responsive-width">
     <div class="w-full my-6">
 
         @if (session('status'))
@@ -32,15 +32,16 @@
         <a href="/article/{{ $other->title }}">
             <div class="card">
                 @if ($other->image)
-                <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                <img src="{{ 'storage/production/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                {{-- <img src="/img/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                 {{-- <img src="/storage/uploads/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center"> --}}
                 @endif
                     <div class="description">
                         <p class="leading-normal warm-red">{{ $other->date }}</p>
-                        <h4 class="leading-normal font-semibold">{{ $other->title }}</h4>
+                        <h4 class="leading-normal font-semibold font-['aspergit']">{{ $other->title }}</h4>
                         <p class="leading-normal italic">{{ $other->author }}</p>
                         <br>
-                        <p class="leading-normal">Read more ...</p>
+                        <p class="leading-normal hover:warm-red">Read more ...</p>
                     </div>
             </div>
         </a>

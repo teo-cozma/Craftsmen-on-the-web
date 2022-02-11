@@ -29,11 +29,11 @@ class ContactsController extends Controller
         $this->validate($request, [
             'name' => ['required', 'string'],
             'email' => ['required', 'string', 'email'],
-            'message' => ['required'],
+            'Message' => ['required'],
         ]);
 
         Contact::create($request->all());
 
-        return back()->with('Success', 'Thank you for your message. We\'ll get back to you shortly!');
+        return redirect('/')->with('Success', 'Thank you for your message. We\'ll get back to you shortly!');
     }
 }

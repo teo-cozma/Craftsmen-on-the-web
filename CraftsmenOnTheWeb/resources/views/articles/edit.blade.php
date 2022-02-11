@@ -15,7 +15,7 @@
             <h1 class="custom-h1">Edit, update or remove your story</h1>
             {{-- <a href="{{ route('articles.article.show') }}" class=" hover:underline">Cancel</a> --}}
             
-            <a href="/article/{{ $article->title }}" class=" hover:underline">Cancel</a>
+            <a href="/article/{{ $article->title }}" class=" hover:warm-red">Cancel</a>
             {{-- <a href="{{ route('articles.show', 'show') }}" class=" hover:underline">Cancel</a> --}}
         </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="container md:responsive">
                     <div class="flex flex-wrap md:mb-6">
-                        <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="date" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                             {{ __('Date') }}
                         </label>
 
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="flex flex-wrap md:mb-6">
-                        <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="title" class=" font-['aspergit'] block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                             {{ __('Title') }}
                         </label>
 
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="flex flex-wrap md:mb-6">
-                        <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="author" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                             {{ __('Author') }}
                         </label>
 
@@ -83,13 +83,13 @@
                     </div>
                     
                     <div class="flex flex-wrap">
-                        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="image" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                             {{ __('Image') }}
                         </label>
 
                         <input id="image" type="file"
                             class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ $article->image ?? 'N/A' ?? old('image') }}" autocomplete="image">
+                            value="/img/{{ $article->image ?? 'N/A' ?? old('image') }}" autocomplete="image">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="flex flex-wrap">
-                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                    <label for="body" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2 font-['aspergit']">
                         {{ __('Body') }}
                     </label>
 
@@ -116,7 +116,7 @@
 
                 <div class="flex flex-wrap pb-8 warm-red justify-between items-center">
                     <button type="submit"
-                    class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                    class="select-none font-bold whitespace-no-wrap py-4 px-6 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4 font-['aspergit']">
                     {{ __('Confirm') }}
                     </button>
 

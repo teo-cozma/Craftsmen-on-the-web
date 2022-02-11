@@ -14,7 +14,7 @@
 
                     <div class="container md:responsive">
                         <div class="flex flex-wrap md:mb-6">
-                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                                 {{ __('Name') }}
                             </label>
     
@@ -29,7 +29,7 @@
                         </div>
     
                         <div class="flex flex-wrap">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                                 {{ __('E-Mail Address') }}
                             </label>
     
@@ -47,7 +47,7 @@
                     
                     <div class="container md:responsive">
                         <div class="flex flex-wrap md:mb-6">
-                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                                 {{ __('Password') }}
                             </label>
     
@@ -63,7 +63,7 @@
                         </div>
     
                         <div class="flex flex-wrap">
-                            <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                                 {{ __('Confirm Password') }}
                             </label>
     
@@ -74,7 +74,7 @@
 
                     <div class="flex flex-wrap">
                         <button type="submit"
-                            class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                            class="select-none font-bold whitespace-no-wrap py-4 px-6 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
                             {{ __('Register') }}
                         </button>
 

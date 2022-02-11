@@ -15,7 +15,7 @@
                     <input type="hidden" name="token" value="{{ $token }}">
 
                     <div class="flex flex-wrap">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                             {{ __('E-Mail Address') }}
                         </label>
 
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                             {{ __('Password') }}
                         </label>
 
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                             {{ __('Confirm Password') }}
                         </label>
 

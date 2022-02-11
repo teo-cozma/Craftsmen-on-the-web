@@ -20,7 +20,7 @@
 
                     {{-- <div class="container"> --}}
                         <div class="flex flex-wrap">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                                 {{ __('E-Mail Address') }}
                             </label>
     

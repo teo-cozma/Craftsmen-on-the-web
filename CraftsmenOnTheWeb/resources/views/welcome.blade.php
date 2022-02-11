@@ -26,18 +26,27 @@
         @if(Route::has('login'))
             <div class="flex flex-col">
                 @auth
-                    <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                    <a href="{{ url('/home') }}" class="no-underline hover:underline hover:warm-red text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                    <br><br>
+                    <a href="{{ route('logout') }}"
+                        class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                        {{ csrf_field() }}
+                    </form>
                     <br><br>
                 @else
-                    <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal uppercase my-4">Already a member ?</a>
+                    <a href="{{ route('login') }}" class="no-underline hover:warm-red text-sm font-normal uppercase my-4">Already a member ?</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal uppercase my-6">Wanna join ?</a>
+                        <a href="{{ route('register') }}" class="no-underline hover:warm-red text-sm font-normal uppercase my-6">Wanna join ?</a>
                     @endif
                 @endauth
             </div>
         @endif
 
-        <img src="{{ '/img/carpenter-at-work.webp' }}" alt="at_work" class="flex flex-col justify-center items-center">
+        <img src="{{ '\static\pexels-ivan-samkov-4491913-copy.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
+        {{-- <img src="{{ '/img/carpenter-at-work.webp' }}" alt="at_work" class="flex flex-col justify-center items-center"> --}}
     </div>
 
     {{-- Latest news section --}}
@@ -45,36 +54,31 @@
         <div class="body-width flex flex-col sm:responsive-width">
             <h1 class="custom-h1">Latest news</h1>
                 <div class="container md:responsive mb-10">
-                    @if($allArticles == [])
+
+                @if(!$allArticles)
                     <p class="leading-normal warm-red font-semibold">No news yet...</p>
-                    @endif
-                    @if($allArticles !== null)
+                @endif
+                
+                @if($allArticles)
                     @foreach ($allArticles as $other)
                         <div class="card">
                             @if ($other->image)
-                            <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                            {{-- <img src="\img\{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
+                            {{-- <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
+                            {{-- <img src="{{ 'img/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
+                            <img src="{{ 'storage/production/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                            {{-- <p>{{$other->image}}</p> --}}
                             @endif
                                 <div class="description">
                                     <p class="leading-normal warm-red">{{ $other->date }}</p>
-                                    <h4 class="leading-normal font-semibold">{{ $other->title }}</h4>
+                                    <h4 class="leading-normal font-semibold font-['aspergit']">{{ $other->title }}</h4>
                                     <p class="leading-normal italic">{{ $other->author }}</p>
                                     <br>
                                     <p class="leading-normal warm-red font-semibold">Sign in to read more...</p>
                                 </div>
                         </div>
                     @endforeach
-                @endif
-
-                {{-- <div class="card">
-                    <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center">
-                    <div class="description">
-                        <p>Date</p>
-                        <h4>Title</h4>
-                        <p>Author</p>
-                        <br>
-                        <p class="leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div> --}}
+                @endif 
             </div>
         </div>
     </div>
@@ -82,7 +86,7 @@
     {{-- About section --}}
     <div class="about md:responsive" id="aboutUs">
         <div class="card">
-            <img src="{{ '/img/crafting.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center h-full">
+            <img src="{{ '\static\pexels-anamul-rezwan-1145434.jpg' }}" alt="at_work" class="flex flex-col justify-center items-center h-full object-cover">
         </div>
         <div class="card p-8">
             <h1 class="custom-h1 text-white mt-1">Who we are</h1>
@@ -114,13 +118,13 @@
 
                             <div class="container md:responsive">
                                 <div class="flex flex-wrap md:mb-6">
-                                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                        {{ __('Name') }}:
+                                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
+                                        {{ __('Name') }}
                                     </label>
             
                                     <input id="name" type="text" 
                                         class="form-input w-full bg-input @error('name') border-red-500 @enderror"
-                                        name="name" value="{{ old('name') }}" required autocomplete="name">
+                                        name="name" required autocomplete="name">
             
                                     @error('name')
                                     <p class="text-red-500 text-xs italic mt-4">
@@ -130,13 +134,13 @@
                                 </div>
             
                                 <div class="flex flex-wrap">
-                                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                        {{ __('E-Mail Address') }}:
+                                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
+                                        {{ __('E-Mail Address') }}
                                     </label>
             
                                     <input id="email" type="email"
                                         class="form-input w-full bg-input @error('email') border-red-500 @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        required autocomplete="email">
             
                                     @error('email')
                                     <p class="text-red-500 text-xs italic mt-4">
@@ -147,15 +151,15 @@
                             </div>
         
                             <div class="flex flex-wrap">
-                                <label for="message" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                    {{ __('Message') }}:
+                                <label for="Message" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
+                                    {{ __('Message') }}
                                 </label>
         
-                                <textarea id="message" type="message"
-                                    class="form-input w-full bg-input @error('password') border-red-500 @enderror" name="message"
-                                    required autocomplete="message">
+                                <textarea id="Message" type="text"
+                                    class="form-input w-full bg-input @error('password') border-red-500 @enderror" name="Message"
+                                    required autocomplete="Message">
                                 </textarea>
-                                @error('password')
+                                @error('Message')
                                 <p class="text-red-500 text-xs italic mt-4">
                                     {{ $message }}
                                 </p>
@@ -164,7 +168,7 @@
         
                             <div class="flex flex-wrap pb-8 warm-red">
                                 <button type="submit"
-                                class="select-none font-bold whitespace-no-wrap p-8 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red sm:py-4">
+                                class="select-none font-bold whitespace-no-wrap py-4 px-6 rounded-lg text-base leading-normal no-underline text-gray-100 bg-warm-red">
                                 {{ __('Submit') }}
                                 </button>
                             </div>
@@ -173,6 +177,7 @@
                     </section>
                 </div>
             </div>
+
         </div>
     </div>
 

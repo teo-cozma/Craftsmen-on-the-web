@@ -18,7 +18,7 @@
                     </p>
 
                     <div class="flex flex-wrap">
-                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4 ml-2">
                             {{ __('Password') }}
                         </label>
 

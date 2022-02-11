@@ -43,8 +43,8 @@ html {
 /* Custom elements */
 @font-face {
   font-family: victor-handwriting;
-  /* src: url('../fonts/victor-handwriting/victor.ttf'); */
-  src: url('../victor.ttf');
+  /* src: url('../fonts/victor-handwriting/Victor.ttf'); */
+  src: url('../Victor.ttf');
 }
 @font-face {
   font-family: aspergit;
@@ -94,7 +94,7 @@ footer > .body-width {
 
 @media (max-width: 768px) {
   .sm\:responsive-width {
-    width: 95%;
+    width: 90%;
   }
 }
 
@@ -171,6 +171,7 @@ footer > .body-width {
 .object-cover {
   object-fit: cover;
 }
+
 
 /*
 1. Add the correct height in Firefox.
@@ -773,6 +774,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+.static {
+  position: static;
+}
+
 .top-0 {
   top: 0;
 }
@@ -898,6 +910,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-center {
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .sm-center {
+    justify-content: center;
+    align-content: center;
+  }
+}
 
 .justify-between {
   justify-content: space-between;
@@ -1002,6 +1020,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-form {
   --tw-bg-opacity: 0.1;
   background-color: rgb(213, 183, 129, 0.1);
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .p-6 {
@@ -1211,6 +1238,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
+
+.hover\:warm-red:hover {
+  color: #9A240D;
+  font-family: Aspergit;
+}
+
 
 @media (min-width: 640px) {
 

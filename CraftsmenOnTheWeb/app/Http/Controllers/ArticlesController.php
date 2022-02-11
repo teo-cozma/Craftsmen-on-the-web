@@ -30,8 +30,11 @@ class ArticlesController extends Controller
         ]); 
 
         if(request('image')){
-            $newImageName = time() . '-' . $request->title . '.' .$request->image->extension();
-            $request->image->move(public_path('img'), $newImageName);
+            $newImageName = $request->title . '-' . time() . '.' .$request->image->extension();
+            $request->image->move(public_path('storage/production'), $newImageName);
+
+            // $newImageName = time() . '-' . $request->title . '.' .$request->image->extension();
+            // $request->image->move(public_path('img'), $newImageName);
 
             $article = [
                 'date' => $request->input('date'),
@@ -52,11 +55,13 @@ class ArticlesController extends Controller
     public function show(Request $request, $title)
     {   
         $article = DB::table('articles')->where('title', $title)->get()->first();
+        return view('articles.article', compact('article'));
+        
         // $article = Auth::user()->articles()->where('title', $title)->get()->first();
         // dd($article);
         // dd($otherArticle);
         // dd($article, $otherArticle->author);
-        return view('articles.article', compact('article'));
+        
     }
 
     public function edit($title)
@@ -79,8 +84,11 @@ class ArticlesController extends Controller
         ]); 
 
         if(request('image')) {
-            $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
-            $request->image->move(public_path('img'), $newImageName);
+            $newImageName = $request->title . '-' . time() .'.' .$request->image->extension();
+            $request->image->move(public_path('storage/production'), $newImageName);
+
+            // $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
+            // $request->image->move(public_path('img'), $newImageName);
 
             $article = [
                 'date' => $request->input('date'),
