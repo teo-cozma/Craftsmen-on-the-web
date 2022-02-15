@@ -35,7 +35,8 @@ class ProfilesController extends Controller
 
         if(request('image')) {
             $newImageName = $request->alias . '-' . time() .'.' .$request->image->extension();
-            $request->image->move(public_path('storage/production'), $newImageName);
+            $request->image->move(public_path('production'), $newImageName);
+            // $request->image->move(public_path('storage/production'), $newImageName);
 
             // $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
             // $request->image->move(public_path('img'), $newImageName);
@@ -71,7 +72,8 @@ class ProfilesController extends Controller
 
         if(request('image')) {
             $newImageName = $request->alias . '-' . time() . '.' . $request->image->extension();
-            $request->image->move(public_path('storage/production'), $newImageName);
+            $request->image->move(public_path('production'), $newImageName);
+            // $request->image->move(public_path('storage/production'), $newImageName);
 
             // $imageDestination = 'public/production';
             // $request->image->store($imageDestination, $newImageName);

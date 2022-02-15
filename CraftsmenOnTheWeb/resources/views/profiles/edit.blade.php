@@ -135,8 +135,7 @@
                         </label>
 
                         <input id="image" type="file"
-                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="{{ Auth::user()->profile->image ?? old('image') }}">
+                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -152,7 +151,7 @@
 
                         <input id="alias" type="text" 
                             class="form-border w-full bg-gray-100 @error('alias') border-red-500 @enderror"
-                            name="alias" value="{{ Auth::user()->profile->alias ?? old('alias') }}" required autocomplete="alias">
+                            name="alias" value="{{ Auth::user()->profile->alias ?? 'N/A' }}" required autocomplete="alias">
 
                         @error('alias')
                         <p class="text-red-500 text-xs italic mt-4">

@@ -103,6 +103,15 @@ class ArticlesController extends Controller
         // dd($article);
         return redirect('/home');
     }
+
+    public function delete($title)
+    {   
+        $article = DB::table('articles')->where('title', $title)->get()->delete();
+        // $article = Auth::user()->articles()->where('title', $title)->get()->first()->delete();
+        // $article->delete();
+        // dd($article);
+        return redirect('/home')->with('status','Article Successfully Removed');
+    }
 }
 
     // public function update(Request $request)

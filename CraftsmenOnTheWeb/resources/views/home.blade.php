@@ -31,12 +31,16 @@
         @foreach ($allArticles as $other)
         <a href="/article/{{ $other->title }}">
             <div class="card">
-                @if ($other->image)
-                {{-- <img src="/storage/production/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
+                {{-- @if ($other->image)
                 <img src="{{ 'storage/production/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                @endif --}}
+                {{-- <img src="/storage/production/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                 {{-- <img src="/img/{{ $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                 {{-- <img src="/storage/uploads/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center"> --}}
-                @endif
+
+                {{-- Default article image --}}
+                <img src="{{ '\static\pexels-ono-kosuki-5973883.jpg' }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+
                     <div class="description">
                         <p class="leading-normal warm-red">{{ $other->date }}</p>
                         <h4 class="leading-normal font-semibold font-['aspergit']">{{ $other->title }}</h4>

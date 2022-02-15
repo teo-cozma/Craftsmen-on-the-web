@@ -67,7 +67,10 @@
                             {{-- <img src="{{ asset ('img/' . $other->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                             {{-- <img src="{{ 'img/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
                             {{-- <img src="{{ 'storage/production/' . $other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
-                            <img src="{{ '\storage\production\\'.$other->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+                            {{-- <img src="{{ asset ('/storage/production/'.$other->image)}}" alt="article_img" class="flex flex-col justify-center items-center article_image_home"> --}}
+
+                            {{-- Default image for deployed app on Heroku --}}
+                            <img src="{{ '\static\pexels-ono-kosuki-5973883.jpg' }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
                             {{-- <p>{{$other->image}}</p> --}}
                             @endif
                                 <div class="description">

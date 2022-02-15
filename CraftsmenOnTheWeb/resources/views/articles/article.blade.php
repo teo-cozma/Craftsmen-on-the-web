@@ -9,13 +9,16 @@
             </div>
         @endif
         <div>
-            @if ($article->image)
+            {{-- Default article image for Heroku --}}
+            <img src="{{ '\static\pexels-ono-kosuki-5973883.jpg' }}" alt="article_img" class="flex flex-col justify-center items-center article_image_home">
+
+            {{-- @if ($article->image) --}}
+            {{-- <img src="{{ asset ('storage/production/' . $article->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
                 {{-- <img src="{{ 'storage/production/' . $article->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
                 {{-- <p>{{$article->image}}</p> --}}
                 {{-- <img src="/img/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
-                <img src="{{ asset ('storage/production/' . $article->image )}}" alt="article_img" class="flex flex-col justify-center items-center article_image">
                 {{-- <img src="/storage/production/{{ $article->image }}" alt="article_img" class="flex flex-col justify-center items-center article_image"> --}}
-            @endif
+            {{-- @endif --}}
         </div>
         <div class="description">
             <div class="flex justify-between items-center">

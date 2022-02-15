@@ -38,6 +38,7 @@ Route::group(['middleware'=>'prevent_back_history'], function() {
     Route::get('/article/{article}', [\App\Http\Controllers\ArticlesController::class, 'show'])->name('articles.article.show');
     Route::get('/article/{article}/edit', [\App\Http\Controllers\ArticlesController::class, 'edit'])->name('articles.article.edit');
     Route::patch('/article/{article}/edit', [\App\Http\Controllers\ArticlesController::class, 'update'])->name('articles.article.update');
+    Route::delete('/article/{article}/edit', [\App\Http\Controllers\ArticlesController::class, 'delete'])->name('articles.delete');
     
     // Profile routes
     Route::get('/profile', [\App\Http\Controllers\ProfilesController::class, 'index'])->name('profiles.profile');

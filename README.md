@@ -11,13 +11,14 @@
     - ~~Node JS~~
     - ~~Postman (testing APIs)~~
     - ~~MongoDB Atlas(creating the database ? see if it's possible to create a remote db, or thanks to Heroku)~~
-    - MySQL/MariaDB (database) through XAMPP (that also includes PHP)
+    - MySQL/MariaDB (database) through XAMPP
+    - Postgres database (linked to Heroku deployment)
 - Frontend :
     - ~~React ? (**TBD**)~~
     - ~~Angular ? (**TBD**)~~
     - Blade templates styled with TailwindCSS
 - Deployment : 
-    - Heroku (+ remote DBA ? **TBD**)
+    - Heroku ~~(+ remote DBA ? **TBD**)~~
 
 ### Project definition
 - Theme of choice : **promote craftsmanship.**
@@ -266,9 +267,9 @@ Another summary outlining the major steps of this project, which pages to make, 
     - [x] Basic user info
         - [x] Same process as with the profile (excluding the profile information -> can be done in a table format ?)
 
-12. Edit profile / user info (STATIC) :
-    - [ ] Edit forms for each
-        - [ ] POST / PATCH (update) -> redirect back to profile page with updated information
+12. Edit profile ~~/ user info~~ (STATIC) :
+    - [x] Edit forms ~~for each~~
+        - [x] POST / PATCH (update) -> redirect back to profile page with updated information
         - ***GET ; /profile/edit ; edit ; profile.edit***
         - ***PATCH ; /profile/edit ; update ; profile.update***
 
@@ -390,6 +391,9 @@ Also I got the right font for the logo !!!
 #### Day twenty (11/02)
 Similar problem with the contact form in the deployed version. I think I managed to fix that, but now the question is how I'll be able to see if the message was at all sent. How do I see the content of the deployed database ?
 
+#### Day twenty-one (14/02)
+This is probably the last day I'll consistently work on this app. The good news is everything is pretty much deployed and available for others to test. The persistant problem, however, remains the display of images that are saved into the Postgres database that I set up on Heroku. Since it's ephemeral, there's no way that I could properly store images without adding an additional cloud-based service (like AWS) in order to have those properly displayed. This is one of the major limitations of Heroku. There might very well be a workaround or something elese that I'm missing and that I can't find on my own (yet), but for the time being, in order to move on with the other features I'd like to develop with this app (searchbar and comment section), I'll change the respective lines of code so that they include a default static image that will certainly be displayed correctly. So unfortunately, while the written features of the profile or articles can easily be changed or customisable, it will (temporarily) not be the case for dynamic images. This code will be pushed onto Heroku, but will be reverted back afterwards as that code is still perfectly functional in my development server.
+
 ---
 
 ## Resources
@@ -454,3 +458,4 @@ Similar problem with the contact form in the deployed version. I think I managed
 - Stock photos:
     - Photo by Anamul Rezwan from Pexels (Welcome page)
     - Photo by Ivan Samkov from Pexels (Welcome page)
+    - Photo by Ono Kosuki from Pexels (Default article image)

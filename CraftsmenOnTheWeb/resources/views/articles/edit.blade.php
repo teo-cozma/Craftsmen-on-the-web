@@ -88,8 +88,7 @@
                         </label>
 
                         <input id="image" type="file"
-                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image"
-                            value="/img/{{ $article->image ?? 'N/A' ?? old('image') }}" autocomplete="image">
+                            class="form-border w-full bg-gray-100 @error('image') border-red-500 @enderror" name="image">
 
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -120,7 +119,13 @@
                     {{ __('Confirm') }}
                     </button>
 
-                    <a href="" class=" hover:underline">Delete</a>
+                    {{-- <a href="delete/{{ $article->title }}" class="hover:warm-red">Delete</a> --}}
+                    <form method="POST" action="/article/{{ $article->title }}/edit" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <button type='submit' class="hover:warm-red">Delete</button>
+                    </form>
+                    
                 </div>
             </form>
         </section>
