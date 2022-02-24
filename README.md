@@ -1,6 +1,13 @@
 # Craftsmen on the web
 
 ## Solo work on promoting craftsmanship
+
+### Link to deployed site
+http://craftsmenontheweb.herokuapp.com/
+
+### Some images
+![Logging in](./assets/login_page.png)
+
 ### Languages and tools
 - VS code (text editor)
 - Adobe XD (prototyping)
