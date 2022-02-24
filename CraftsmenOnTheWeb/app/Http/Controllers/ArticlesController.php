@@ -55,7 +55,10 @@ class ArticlesController extends Controller
     public function show(Request $request, $title)
     {   
         $article = DB::table('articles')->where('title', $title)->get()->first();
-        return view('articles.article', compact('article'));
+        $comments = DB::table('comments')->latest()->get();
+
+        // return view('articles.article', compact('article'));
+        return view('articles.article', compact('article', 'comments'));
         
         // $article = Auth::user()->articles()->where('title', $title)->get()->first();
         // dd($article);
@@ -85,7 +88,7 @@ class ArticlesController extends Controller
 
         if(request('image')) {
             $newImageName = $request->title . '-' . time() .'.' .$request->image->extension();
-            $request->image->move(public_path('storage/production'), $newImageName);
+            $request->image->move(public_path('./storage/production'), $newImageName);
 
             // $newImageName = time() . '-' . $request->alias . '.' .$request->image->extension();
             // $request->image->move(public_path('img'), $newImageName);

@@ -12,7 +12,7 @@
         @endif
        
         <div class="flex justify-between items-center">
-            <h1 class="custom-h1">Edit, update or remove your story</h1>
+            <h1 class="custom-h1">Edit or update your story</h1>
             {{-- <a href="{{ route('articles.article.show') }}" class=" hover:underline">Cancel</a> --}}
             
             <a href="/article/{{ $article->title }}" class=" hover:warm-red">Cancel</a>
@@ -120,14 +120,20 @@
                     </button>
 
                     {{-- <a href="delete/{{ $article->title }}" class="hover:warm-red">Delete</a> --}}
-                    <form method="POST" action="/article/{{ $article->title }}/edit" enctype="multipart/form-data">
+                    {{-- <form method="POST" action="/article/{{ $article->title }}/edit" enctype="multipart/form-data">
                         @csrf
                         @method('DELETE')
                         <button type='submit' class="hover:warm-red">Delete</button>
-                    </form>
+                    </form> --}}
                     
                 </div>
             </form>
+            {{-- <form method="POST" action="/article/{{ $article->title }}/edit" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                {{-- @csrf --}}
+                {{-- @method('DELETE')
+                <button type='submit' class="hover:warm-red">Delete</button>
+            </form> --}}
         </section>
     </div>
 </main>

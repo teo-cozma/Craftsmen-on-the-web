@@ -17,18 +17,20 @@
     <div class="container md:responsive mb-10 items-center sm-center">
       <div class="mb-10">
         {{-- Default profile image for Heroku --}}
-        <img src="{{ '/img/Default_profile_image.png' }}" class="profile_image">
+        {{-- <img src="{{ '/img/Default_profile_image.png' }}" class="profile_image"> --}}
 
-        {{-- @if(Auth::user()->profile === null) --}}
-        {{-- <img src="/img/Default_profile_image.png" class="profile_image"> --}}
-        {{-- @else --}}
-        {{-- <img src="{{ 'production/'.(Auth::user()->profile->image) }}" alt="profile_image" class="profile_image"> --}}
+        @if(Auth::user()->profile === null)
+        <img src="/img/Default_profile_image.png" class="profile_image">
+        @else
+        <img src="{{ './storage/'.(Auth::user()->profile->image) }}" alt="profile_image" class="profile_image">
+        {{-- <img src="{{ './storage/production/'.(Auth::user()->profile->image) }}" alt="profile_image" class="profile_image"> --}}
+
         {{-- <img src="{{ asset ('production/'.Auth::user()->profile->image) }}" alt="profile_image" class="profile_image"> --}}
         {{-- <img src="{{ '/storage/production/' . Auth::user()->profile->image }}" alt="profile_image" class="profile_image"> --}}
         {{-- <img src="/storage/production/{{Auth::user()->profile->image }}" alt="profile_image" class="profile_image"> --}}
         {{-- <img src="/img/{{ Auth::user()->profile->image }}" alt="profile_image" class="profile_image"> --}}
         {{-- <img src="{{ asset ('img/' . Auth::user()->profile->image )}}" alt="profile_image" class="profile_image"> --}}
-        {{-- @endif --}}
+        @endif
 
       </div>
       <div>

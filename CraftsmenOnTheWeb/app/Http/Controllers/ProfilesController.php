@@ -72,7 +72,8 @@ class ProfilesController extends Controller
 
         if(request('image')) {
             $newImageName = $request->alias . '-' . time() . '.' . $request->image->extension();
-            $request->image->move(public_path('production'), $newImageName);
+            $request->image->move(public_path('./storage/'), $newImageName);
+            // $request->image->move(public_path('./storage/production'), $newImageName);
             // $request->image->move(public_path('storage/production'), $newImageName);
 
             // $imageDestination = 'public/production';

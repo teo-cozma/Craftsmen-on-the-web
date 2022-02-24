@@ -1,4 +1,4 @@
-# npProject
+# Craftsmen on the web
 
 ## Solo work on promoting craftsmanship
 ### Languages and tools
@@ -394,6 +394,10 @@ Similar problem with the contact form in the deployed version. I think I managed
 #### Day twenty-one (14/02)
 This is probably the last day I'll consistently work on this app. The good news is everything is pretty much deployed and available for others to test. The persistant problem, however, remains the display of images that are saved into the Postgres database that I set up on Heroku. Since it's ephemeral, there's no way that I could properly store images without adding an additional cloud-based service (like AWS) in order to have those properly displayed. This is one of the major limitations of Heroku. There might very well be a workaround or something elese that I'm missing and that I can't find on my own (yet), but for the time being, in order to move on with the other features I'd like to develop with this app (searchbar and comment section), I'll change the respective lines of code so that they include a default static image that will certainly be displayed correctly. So unfortunately, while the written features of the profile or articles can easily be changed or customisable, it will (temporarily) not be the case for dynamic images. This code will be pushed onto Heroku, but will be reverted back afterwards as that code is still perfectly functional in my development server.
 
+
+#### 24/02 : 
+Made several more attempts to fix the image paths on the deployed version. The 404 error persists, so it seems that the image path is still the problem here. It has nothing to do with the gitignore file or some of the other files that I investigated in case there was another issue. I'm stuck trying to resolve the same issue over and over again...
+
 ---
 
 ## Resources
@@ -454,6 +458,14 @@ This is probably the last day I'll consistently work on this app. The good news 
     - https://www.youtube.com/watch?v=zf0gT2J6xik
 
     - https://stackoverflow.com/questions/45552264/images-in-app-public-laravel-not-show-in-heroku-app
+
+    - https://www.codegrepper.com/code-examples/php/laravel+8+htaccess+file
+    - https://www.webhostface.com/kb/knowledgebase/laravel-public-folder/
+    - https://laracasts.com/discuss/channels/laravel/laravel-404-not-found-on-heroku?page=1
+    - https://stackoverflow.com/questions/57645632/laravel-difference-between-production-path-and-local-path-need-to-use-public
+    - https://stackoverflow.com/questions/46835854/laravel-images-not-loading-in-production-server-work-fine-in-local
+    - https://stackoverflow.com/questions/70197933/page-not-found-error-when-trying-to-load-image-from-heroku-db
+    - https://laracasts.com/discuss/channels/laravel/laravel-browser-gives-404-when-image-path-correctly-defined?page=0
 
 - Stock photos:
     - Photo by Anamul Rezwan from Pexels (Welcome page)

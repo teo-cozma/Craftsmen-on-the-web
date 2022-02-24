@@ -17,10 +17,10 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->date('date')->nullable(false);
-            $table->string('author', 50)->nullable(false);
+            $table->string('author')->nullable(false);
             $table->mediumText('body')->nullable(false);
             $table->timestamps();
-
+            $table->softDeletes();
             $table->index('user_id');
         });
     }
