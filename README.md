@@ -6,7 +6,15 @@
 http://craftsmenontheweb.herokuapp.com/
 
 ### Some images
+![Register](./assets/register_page.png)
 ![Logging in](./assets/login_page.png)
+![Forgot password](./assets/forgot_password.png)
+![Logged in](./assets/main_page_logged_in.png)
+![Logged in 2](./assets/main_page_logged_in_2.png)
+![Write a new article](./assets/write_a_new_article.png)
+![Update article](./assets/update_edit_story.png)
+![Article page](./assets/selected_article.png)
+![Profile page](./assets/profile_page.png)
 
 ### Languages and tools
 - VS code (text editor)
