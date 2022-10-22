@@ -6,6 +6,11 @@
 http://craftsmenontheweb.herokuapp.com/
 
 ### Some images
+![Homepage-1](./assets/homepage-1.png)
+![Homepage-2](./assets/homepage-2.png)
+![Homepage-3](./assets/homepage-3.png)
+![Homepage-4](./assets/homepage-4.png)
+![Homepage-5](./assets/homepage-5.png)
 ![Register](./assets/register_page.png)
 ![Logging in](./assets/login_page.png)
 ![Forgot password](./assets/forgot_password.png)
